@@ -1,0 +1,1 @@
+http://ybtappuat.cn.hsbc:20118/ybt_uat/application/newTestingCenter/newCont/jsp/partNewContEnter.jsp
