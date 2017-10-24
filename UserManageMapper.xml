@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosoft.service.business.db.dao.UserManageExtDao">
+	<resultMap id="BaseResultMap" type="com.sinosoft.service.business.db.vo.SYSUserVo">
+	    <id column="emplID" jdbcType="VARCHAR" property="emplID" />
+	    <result column="department" jdbcType="VARCHAR" property="department" />
+	    <result column="name" jdbcType="VARCHAR" property="name" />
+	    <result column="preferredFirstName" jdbcType="VARCHAR" property="preferredFirstName" />
+	    <result column="jobCode" jdbcType="VARCHAR" property="jobCode" />
+	    <result column="positionCode" jdbcType="VARCHAR" property="positionCode" />
+	    <result column="positionTitle" jdbcType="VARCHAR" property="positionTitle" />
+	    <result column="companyCode" jdbcType="VARCHAR" property="companyCode" />
+	    <result column="companyName" jdbcType="VARCHAR" property="companyName" />
+	    <result column="location" jdbcType="VARCHAR" property="location" />
+	    
+	    <result column="locationDescr" jdbcType="VARCHAR" property="locationDescr" />
+	    <result column="deptID" jdbcType="VARCHAR" property="deptID" />
+	    <result column="costCentre" jdbcType="VARCHAR" property="costCentre" />
+	    <result column="emplRcd" jdbcType="VARCHAR" property="emplRcd" />
+	    <result column="lastName" jdbcType="VARCHAR" property="lastName" />
+	    <result column="eMsPositionCode" jdbcType="VARCHAR" property="eMsPositionCode" />
+	    <result column="eMsPositionTitle" jdbcType="VARCHAR" property="eMsPositionTitle" />
+	    <result column="eMsStaffID" jdbcType="VARCHAR" property="eMsStaffID" />
+	    <result column="eMsName" jdbcType="VARCHAR" property="eMsName" />
+	    <result column="fMsPositionCode" jdbcType="VARCHAR" property="fMsPositionCode" />
+	    <result column="fMsPositionTitle" jdbcType="VARCHAR" property="fMsPositionTitle" />
+	    <result column="fMsStaffID" jdbcType="VARCHAR" property="fMsStaffID" />
+	    <result column="fMsName" jdbcType="VARCHAR" property="fMsName" />
+	    <result column="jobTitle" jdbcType="VARCHAR" property="jobTitle" />
+	    <result column="legacyJobcode" jdbcType="VARCHAR" property="legacyJobcode" />
+		<result column="status" jdbcType="VARCHAR" property="status" />
+	    <result column="hireDate" jdbcType="TIMESTAMP" property="hireDate" />
+	    <result column="rehireDate" jdbcType="TIMESTAMP" property="rehireDate" />
+	    <result column="termDate" jdbcType="TIMESTAMP" property="termDate" />
+	    <result column="originalHireDate" jdbcType="TIMESTAMP" property="originalHireDate" />
+	    <result column="companyDt" jdbcType="TIMESTAMP" property="companyDt" />
+	    <result column="hRL1Descr" jdbcType="VARCHAR" property="hRL1Descr" />
+	    <result column="hRL2Descr" jdbcType="VARCHAR" property="hRL2Descr" />
+	    <result column="hRL3Descr" jdbcType="VARCHAR" property="hRL3Descr" />
+	    <result column="hRL4Descr" jdbcType="VARCHAR" property="hRL4Descr" />
+	    <result column="hRL5Descr" jdbcType="VARCHAR" property="hRL5Descr" />
+	     <result column="checkFlag" jdbcType="VARCHAR" property="checkFlag" />
+	    <result column="operator" jdbcType="VARCHAR" property="operator" />
+	    <result column="makeDate" jdbcType="TIMESTAMP" property="makeDate" />
+	    <result column="makeTime" jdbcType="VARCHAR" property="makeTime" />
+	  
+  </resultMap>
+  <sql id="Base_Column_List">
+  EMPLID ,DEPARTMENT ,NAME , PreferredFirstName  ,JOBCODE  ,COMPANYCODE ,PositionCode  ,PositionTitle , COMPANYNAME,LOCATION ,LocationDescr  ,
+  DeptID  ,CostCentre , EmplRcd ,LastName ,EMsPositionCode,EMsPositionTitle ,EMsStaffID ,EMsName ,FMsPositionCode  ,FMsPositionTitle   ,
+  FMsStaffID ,FMsName ,JobTitle,LegacyJobcode  ,STATUS,HIREDATE  ,REHIREDATE , TermDate ,OriginalHireDate , CompanyDt ,
+  HRL1Descr  ,HRL2Descr , HRL3Descr ,HRL4Descr  , HRL5Descr   ,CHECKFLAG ,OPERATOR   ,MAKEDATE  ,MAKETIME
+  </sql>
+
+  <select id="queryList11" resultMap="BaseResultMap" parameterType="com.sinosoft.service.business.db.vo.SYSUserVo"> 
+  	select a.*
+  from (select * from lduser where emplID not in(select emplID from ldusera)union select * from ldusera)
+   a   where 1=1
+       and  checkFlag!='Y' 
+       <if test="emplID != null">
+        and emplID = #{emplID,jdbcType=VARCHAR}
+       </if>
+       <if test="name != null">
+        and name = #{name,jdbcType=VARCHAR}
+      </if>
+  </select>
+  
+    <select id="queryLists" resultMap="BaseResultMap" parameterType="com.sinosoft.service.business.db.vo.SYSUserVo"> 
+    select * from lduser 
+      where 1=1
+       and  checkFlag='Y' 
+       <if test="emplID != null">
+        and emplID = #{emplID,jdbcType=VARCHAR}
+       </if>
+       <if test="name != null">
+        and name = #{name,jdbcType=VARCHAR}
+      </if>
+  </select>
+  
+    <select id="queryLduserA" resultType="com.sinosoft.service.business.db.vo.SYSUserVo" parameterType="com.sinosoft.service.business.db.vo.SYSUserVo"> 
+  	select a.*,(select salesrole1 from jobcode where jobcode=a.jobcode)as salesrole1,(select salesrole2 from jobcode where jobcode=a.jobcode)as salesrole2 from ldusera a
+  	<where>
+       <if test="emplID != null">
+        and emplID = #{emplID,jdbcType=VARCHAR}
+       </if>
+       <if test="city != null">
+       and location like concat(#{city,jdbcType=VARCHAR},'%')
+      </if>
+      <if test="location != null">
+        and location like concat(#{location,jdbcType=VARCHAR},'%')
+       </if>
+       <if test="companyName != null">
+        and companyName = #{companyName,jdbcType=VARCHAR}
+       </if>
+       <if test="department != null">
+        and department = #{department,jdbcType=VARCHAR}
+       </if>
+       </where>
+  </select>
+  
+  
+  <select id="selectByUid" resultMap="BaseResultMap" parameterType="com.sinosoft.service.business.db.vo.SYSUserVo">
+  
+   	select a.*
+  from (select * from lduser where emplID not in(select emplID from ldusera)union select * from ldusera)
+   a   where 1=1
+       <if test="emplID != null">
+        and emplID = #{emplID,jdbcType=VARCHAR}
+       </if>
+  
+  </select>
+  
+  
+  <select id="selectByemplID" resultMap="BaseResultMap" parameterType="com.sinosoft.service.business.db.vo.SYSUserVo">
+  
+   	select emplid from ldusera where 1=1
+       <if test="emplID != null">
+        and emplID = #{emplID,jdbcType=VARCHAR}
+       </if>
+  
+  </select>
+  
+   <select id="selectAlls" resultMap="BaseResultMap">
+  
+   	select * from ldusera 
+  </select>
+  
+     <select id="selectones" resultMap="BaseResultMap"  parameterType="com.sinosoft.service.business.db.vo.SYSUserVo">
+  
+   	select * from ldusera where emplID = #{emplID,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByemplID" parameterType="com.sinosoft.service.business.db.vo.SYSUserVo">
+    delete from ldusera where  emplID = #{emplID,jdbcType=VARCHAR}
+  </delete>
+    <delete id="delete" parameterType="com.sinosoft.service.business.db.vo.SYSUserVo">
+    delete from lduser where  emplID = #{emplID,jdbcType=VARCHAR}
+  </delete>
+   <delete id="deleteall" >
+    delete from ldusera 
+  </delete>
+  	<insert id="insertA" parameterType="com.sinosoft.service.business.db.vo.SYSUserVo">
+  	 insert into LDUserA (emplID,department,name,preferredFirstName,jobCode,positionCode,positionTitle,companyCode,companyName,location,
+  	 locationDescr,deptID,costCentre,emplRcd ,lastName,eMsPositionCode,eMsPositionTitle,eMsStaffID,eMsName,fMsPositionCode,fMsPositionTitle,
+     fMsStaffID,fMsName,jobTitle,legacyJobcode,status,hireDate,rehireDate,termDate,originalHireDate,companyDt,hRL1Descr,hRL2Descr,hRL3Descr,
+     hRL4Descr,hRL5Descr,checkFlag,operator,makeDate,makeTime)
+     values 
+      (#{emplID,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{preferredFirstName,jdbcType=VARCHAR}, 
+      #{jobCode,jdbcType=VARCHAR}, #{positionCode,jdbcType=VARCHAR}, #{positionTitle,jdbcType=VARCHAR}, #{companyCode,jdbcType=VARCHAR},
+       #{companyName,jdbcType=VARCHAR}, 
+      #{location,jdbcType=VARCHAR},#{locationDescr,jdbcType=VARCHAR}, #{deptID,jdbcType=VARCHAR}, #{costCentre,jdbcType=VARCHAR}, 
+      #{emplRcd,jdbcType=VARCHAR}, #{lastName,jdbcType=VARCHAR}, #{eMsPositionCode,jdbcType=VARCHAR}, 
+      #{eMsPositionTitle,jdbcType=VARCHAR}, #{eMsStaffID,jdbcType=VARCHAR}, #{eMsName,jdbcType=VARCHAR}, 
+      #{fMsPositionCode,jdbcType=VARCHAR}, #{fMsPositionTitle,jdbcType=VARCHAR}, #{fMsStaffID,jdbcType=VARCHAR},
+      #{fMsName,jdbcType=VARCHAR}, #{jobTitle,jdbcType=VARCHAR},#{legacyJobcode,jdbcType=VARCHAR},
+      #{status,jdbcType=VARCHAR}, #{hireDate,jdbcType=TIMESTAMP}, #{rehireDate,jdbcType=VARCHAR},
+      #{termDate,jdbcType=TIMESTAMP},#{originalHireDate,jdbcType=TIMESTAMP},#{companyDt,jdbcType=TIMESTAMP},
+      #{hRL1Descr,jdbcType=VARCHAR}, #{hRL2Descr,jdbcType=VARCHAR}, #{hRL3Descr,jdbcType=VARCHAR},#{hRL4Descr,jdbcType=VARCHAR},
+      #{hRL5Descr,jdbcType=VARCHAR}, 
+      #{checkFlag,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR},#{makeDate,jdbcType=TIMESTAMP}, #{makeTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insert" parameterType="com.sinosoft.service.business.db.vo.SYSUserVo">
+  	 insert into LDUser(emplID,department,name,preferredFirstName,jobCode,positionCode,positionTitle,companyCode,companyName,location,
+  	 locationDescr,deptID,costCentre,emplRcd ,lastName,eMsPositionCode,eMsPositionTitle,eMsStaffID,eMsName,fMsPositionCode,fMsPositionTitle,
+     fMsStaffID,fMsName,jobTitle,legacyJobcode,status,hireDate,rehireDate,termDate,originalHireDate,companyDt,hRL1Descr,hRL2Descr,hRL3Descr,
+     hRL4Descr,hRL5Descr,checkFlag,operator,makeDate,makeTime)
+     values 
+      (#{emplID,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{preferredFirstName,jdbcType=VARCHAR}, 
+      #{jobCode,jdbcType=VARCHAR}, #{positionCode,jdbcType=VARCHAR}, #{positionTitle,jdbcType=VARCHAR}, #{companyCode,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, 
+      #{location,jdbcType=VARCHAR},#{locationDescr,jdbcType=VARCHAR}, #{deptID,jdbcType=VARCHAR}, #{costCentre,jdbcType=VARCHAR}, 
+      #{emplRcd,jdbcType=VARCHAR}, #{lastName,jdbcType=VARCHAR}, #{eMsPositionCode,jdbcType=VARCHAR}, 
+      #{eMsPositionTitle,jdbcType=VARCHAR}, #{eMsStaffID,jdbcType=VARCHAR}, #{eMsName,jdbcType=VARCHAR}, 
+      #{fMsPositionCode,jdbcType=VARCHAR}, #{fMsPositionTitle,jdbcType=VARCHAR}, #{fMsStaffID,jdbcType=VARCHAR},#{fMsName,jdbcType=VARCHAR}, #{jobTitle,jdbcType=VARCHAR},#{legacyJobcode,jdbcType=VARCHAR},
+      #{status,jdbcType=VARCHAR}, #{hireDate,jdbcType=TIMESTAMP}, #{rehireDate,jdbcType=VARCHAR},
+      #{termDate,jdbcType=TIMESTAMP},#{originalHireDate,jdbcType=TIMESTAMP},#{companyDt,jdbcType=TIMESTAMP},
+      #{hRL1Descr,jdbcType=VARCHAR}, #{hRL2Descr,jdbcType=VARCHAR}, #{hRL3Descr,jdbcType=VARCHAR}, #{hRL4Descr,jdbcType=VARCHAR}, #{hRL5Descr,jdbcType=VARCHAR}, 
+      #{checkFlag,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR},#{makeDate,jdbcType=TIMESTAMP}, #{makeTime,jdbcType=VARCHAR})
+  </insert>
+
+  <insert id="insertdetailall" parameterType="com.sinosoft.service.business.db.vo.detailallVo">
+	  insert into detailall(transno,staffid,flag,operator,descs,fileid,makedate,maketime) 
+	  values(#{transno,jdbcType=VARCHAR},#{staffid,jdbcType=VARCHAR},#{flag,jdbcType=VARCHAR},
+	  #{operator,jdbcType=VARCHAR},#{descs,jdbcType=VARCHAR},#{fileid,jdbcType=VARCHAR},#{makedate,jdbcType=TIMESTAMP},#{maketime,jdbcType=VARCHAR})
+  </insert> 
+    <insert id="insertrecordall" parameterType="com.sinosoft.service.business.db.vo.recordallVo">
+	  insert into recordall(transno,fileid,filetype,counts,loser,succeed,operator,makedate,maketime) 
+	  values(#{transno,jdbcType=VARCHAR},#{fileid,jdbcType=VARCHAR},#{filetype,jdbcType=VARCHAR},
+	  #{counts,jdbcType=VARCHAR},#{loser,jdbcType=VARCHAR},#{succeed,jdbcType=VARCHAR},#{operator,jdbcType=VARCHAR},#{makedate,jdbcType=TIMESTAMP},#{maketime,jdbcType=VARCHAR})
+  </insert>
+	<update id="update" parameterType="com.sinosoft.service.business.db.vo.SYSUserVo">
+    update t_sys_user
+    <set>
+      <if test="userCode != null">
+        user_code = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null">
+        user_pwd = #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="effStartDate != null">
+        eff_start_date = #{effStartDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effEndDate != null">
+        eff_end_date = #{effEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comUid != null">
+        com_uid = #{comUid,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="crtTime != null">
+        crt_time = #{crtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updTime != null">
+        upd_time = #{updTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where uid = #{uid,jdbcType=VARCHAR}
+  </update>	 
+	 
+</mapper>
