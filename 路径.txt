@@ -3,7 +3,7 @@ UAT测试环境存放上传文件的路径
 /home/ybt/uploadfiles/inner
 /home/ybt/uploadfiles/training
 /home/ybt/uploadfiles/users
-noncont
+/home/ybt/uploadfiles/noncont
 
 UAT测试环境存放下载文件的路径
 /home/ybt/downloadfiles/exter
