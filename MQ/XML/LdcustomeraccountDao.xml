@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosoft.service.business.db.dao.LdcustomeraccountDao">
+<resultMap id="BaseResultMap" type="com.sinosoft.service.business.ui.CustomerID.bean.Ldcustomeraccount" >
+    <id column="COUNTNO" property="countno" jdbcType="VARCHAR" />
+    <result column="LDCUSTOMERNO" property="ldcustomerno" jdbcType="VARCHAR" />
+    <result column="CIFID" property="cifid" jdbcType="VARCHAR" />
+    <result column="ACCOUNTNUMBER" property="accountnumber" jdbcType="VARCHAR" />
+    <result column="ACCOUNTCCY" property="accountccy" jdbcType="VARCHAR" />
+    <result column="ACCOUNTBALANCE" property="accountbalance" jdbcType="VARCHAR" />
+    <result column="ACCOUNTSTATUS" property="accountstatus" jdbcType="VARCHAR" />
+    <result column="BAK1" property="bak1" jdbcType="VARCHAR" />
+    <result column="BAK2" property="bak2" jdbcType="VARCHAR" />
+    <result column="BAK3" property="bak3" jdbcType="VARCHAR" />
+    <result column="BAK4" property="bak4" jdbcType="VARCHAR" />
+    <result column="BAK5" property="bak5" jdbcType="VARCHAR" />
+    <result column="BAK6" property="bak6" jdbcType="VARCHAR" />
+    <result column="BAK7" property="bak7" jdbcType="VARCHAR" />
+    <result column="BAK8" property="bak8" jdbcType="VARCHAR" />
+    <result column="BAK9" property="bak9" jdbcType="VARCHAR" />
+    <result column="BAK10" property="bak10" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    COUNTNO, LDCUSTOMERNO, CIFID, ACCOUNTNUMBER, ACCOUNTCCY, ACCOUNTBALANCE, ACCOUNTSTATUS, 
+    BAK1, BAK2, BAK3, BAK4, BAK5, BAK6, BAK7, BAK8, BAK9, BAK10
+  </sql>
+ <select id="selectLdcustomer"  resultMap="BaseResultMap" parameterType="String">
+  	  select <include refid="Base_Column_List" /> from ldcustomeraccount where cifid=#{cifid,jdbcType=VARCHAR}
+   </select>
+   
+
+ <select id="selectaccountbalance"  resultMap="BaseResultMap" parameterType="String">
+  	  select <include refid="Base_Column_List" /> from ldcustomeraccount where ACCOUNTNUMBER=#{ACCOUNTNUMBER,jdbcType=VARCHAR}
+   </select>
+
+<insert id="addLdcustomeraccount" parameterType="com.sinosoft.service.business.ui.CustomerID.bean.Ldcustomeraccount" >
+    insert into LDCUSTOMERACCOUNT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="countno != null" >
+        COUNTNO,
+      </if>
+      <if test="ldcustomerno != null" >
+        LDCUSTOMERNO,
+      </if>
+      <if test="cifid != null" >
+        CIFID,
+      </if>
+      <if test="accountnumber != null" >
+        ACCOUNTNUMBER,
+      </if>
+      <if test="accountccy != null" >
+        ACCOUNTCCY,
+      </if>
+      <if test="accountbalance != null" >
+        ACCOUNTBALANCE,
+      </if>
+      <if test="accountstatus != null" >
+        ACCOUNTSTATUS,
+      </if>
+      <if test="bak1 != null" >
+        BAK1,
+      </if>
+      <if test="bak2 != null" >
+        BAK2,
+      </if>
+      <if test="bak3 != null" >
+        BAK3,
+      </if>
+      <if test="bak4 != null" >
+        BAK4,
+      </if>
+      <if test="bak5 != null" >
+        BAK5,
+      </if>
+      <if test="bak6 != null" >
+        BAK6,
+      </if>
+      <if test="bak7 != null" >
+        BAK7,
+      </if>
+      <if test="bak8 != null" >
+        BAK8,
+      </if>
+      <if test="bak9 != null" >
+        BAK9,
+      </if>
+      <if test="bak10 != null" >
+        BAK10,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="countno != null" >
+        #{countno,jdbcType=VARCHAR},
+      </if>
+      <if test="ldcustomerno != null" >
+        #{ldcustomerno,jdbcType=VARCHAR},
+      </if>
+      <if test="cifid != null" >
+        #{cifid,jdbcType=VARCHAR},
+      </if>
+      <if test="accountnumber != null" >
+        #{accountnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="accountccy != null" >
+        #{accountccy,jdbcType=VARCHAR},
+      </if>
+      <if test="accountbalance != null" >
+        #{accountbalance,jdbcType=VARCHAR},
+      </if>
+      <if test="accountstatus != null" >
+        #{accountstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="bak1 != null" >
+        #{bak1,jdbcType=VARCHAR},
+      </if>
+      <if test="bak2 != null" >
+        #{bak2,jdbcType=VARCHAR},
+      </if>
+      <if test="bak3 != null" >
+        #{bak3,jdbcType=VARCHAR},
+      </if>
+      <if test="bak4 != null" >
+        #{bak4,jdbcType=VARCHAR},
+      </if>
+      <if test="bak5 != null" >
+        #{bak5,jdbcType=VARCHAR},
+      </if>
+      <if test="bak6 != null" >
+        #{bak6,jdbcType=VARCHAR},
+      </if>
+      <if test="bak7 != null" >
+        #{bak7,jdbcType=VARCHAR},
+      </if>
+      <if test="bak8 != null" >
+        #{bak8,jdbcType=VARCHAR},
+      </if>
+      <if test="bak9 != null" >
+        #{bak9,jdbcType=VARCHAR},
+      </if>
+      <if test="bak10 != null" >
+        #{bak10,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+<delete id="delectLdcustomeraccount" parameterType="String">
+  delete  from  Ldcustomeraccount where CIFID = #{cifid,jdbcType=VARCHAR}
+
+</delete>
+
+
+<select id="selectAccountNo" resultType="String">
+     select SQE_ACCOUNT.nextval from dual
+</select>
+
+
+</mapper>

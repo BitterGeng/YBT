@@ -1,0 +1,96 @@
+-- Create table
+create table LDHUBFLAG
+(
+  ID           VARCHAR2(3),
+  BRCCODE      VARCHAR2(10),
+  HUBMESSAGEID VARCHAR2(20),
+  DESCRIPTION  VARCHAR2(100)
+)
+tablespace USERS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64
+    next 1
+    minextents 1
+    maxextents unlimited
+  );
+
+
+
+
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('1', '000', '', 'Susscceful');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('2', 'Y01', 'LYB0001', 'Invalid request message type');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('3', 'Y02', 'LYB0002', 'Invalid Customer Number');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('4', 'Y03', 'LYB0003', 'Customer Doesn''t Exit');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('5', 'Y04', 'LYB0004', 'Error occur when Retrieve FATCA information');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('6', 'Y05', 'LYB0005', 'Transaction fail');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('7', 'Y06', 'LYB0006', 'Transaction not found');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('8', 'Y07', 'LYB0007', 'YBT Transaction Sequence No. Not allow blanks');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('9', 'Y08', 'LYB0008', 'YBT Transaction Sequence Already Exist');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('10', 'Y09', 'LYB0009', 'Only support Today''s reversal');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('11', 'Y10', 'LYB00010', 'Original Txn has already been Reversed');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('12', 'Y11', 'LYB0011', 'Original Txn is not Successful, not allow to be reversal');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('13', 'Y12', 'LYB0012', 'Original Txn is a reversal, not allow to be reversal');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('14', 'Y13', 'LYB0013', 'Original Txn doesn''t Exist');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('15', 'Y14', 'LYB0014', 'The A/C in Original Txn doesn''t Exist');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('16', 'Y15', 'LYB0015', 'A/C status not available');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('17', 'Y16', 'LYB0016', 'Account Closed');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('18', 'Y17', 'LYB0017', 'Can''t retrieve the Suspense A/C');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('19', 'Y18', 'LYB0018', 'A/C number is invalid');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('20', 'Y19', 'LYB0019', 'Insufficient funds in suspense account');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('21', 'Y20', 'LYB0020', 'Suspense A/C is not Valid');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('22', 'Y21', 'LYB0021', 'Error occur when call application program , please contact IT support');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('23', 'Y22', 'LYB0022', 'Please input the detail information');
+
+
+
+
