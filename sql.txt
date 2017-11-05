@@ -1,0 +1,329 @@
+
+create sequence SEQ_LDCUSTOMERADDRESSNO
+
+start with 1
+
+increment by 1
+
+nomaxvalue
+
+nominvalue;
+
+
+create sequence CIFQuerySequence
+
+start with 1
+
+increment by 1
+
+nomaxvalue
+
+nominvalue;
+
+
+
+
+drop table LDCUSTOMER
+-- Create table
+create table LDCUSTOMER
+(
+  LDCUSTOMERNO    VARCHAR2(100) not null,
+  CIFID           VARCHAR2(30) not null,
+  FULLNAME        VARCHAR2(22),
+  FORMERNAME      VARCHAR2(22),
+  IDTYPE          VARCHAR2(30),
+  IDNUMBER        VARCHAR2(150),
+  IDEXPIRY        VARCHAR2(30),
+  AGE             VARCHAR2(30),
+  GENDER          VARCHAR2(10),
+  CENSUSREGISTER  VARCHAR2(10),
+  MARITALSTATUS   VARCHAR2(22),
+  CONTACTPHONENO  VARCHAR2(100),
+  MOBILEPHONENO   VARCHAR2(100),
+  CALLBACK        VARCHAR2(100),
+  FULLNAMECHINESE VARCHAR2(280),
+  NATIONALITY     VARCHAR2(10),
+  DATEOFBIRTH     VARCHAR2(10)
+)
+tablespace USERS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 16
+    next 8
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the columns 
+comment on column LDCUSTOMER.LDCUSTOMERNO
+  is '序列号';
+comment on column LDCUSTOMER.CIFID
+  is 'CIFID';
+comment on column LDCUSTOMER.FULLNAME
+  is '英文名';
+comment on column LDCUSTOMER.IDTYPE
+  is '证件类型';
+comment on column LDCUSTOMER.IDNUMBER
+  is '证件号';
+comment on column LDCUSTOMER.IDEXPIRY
+  is '证件失效日期';
+comment on column LDCUSTOMER.MARITALSTATUS
+  is '婚姻状况';
+comment on column LDCUSTOMER.MOBILEPHONENO
+  is '手机号码';
+comment on column LDCUSTOMER.FULLNAMECHINESE
+  is '中文名';
+comment on column LDCUSTOMER.NATIONALITY
+  is '国籍';
+comment on column LDCUSTOMER.DATEOFBIRTH
+  is '出生日期';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table LDCUSTOMER
+  add constraint CIFID primary key (CIFID)
+  using index 
+  tablespace USERS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+
+
+drop table LDCUSTOMERADDRESS
+-- Create table
+create table LDCUSTOMERADDRESS
+(
+  LDCUSTOMERNO                VARCHAR2(100) not null,
+  CIFID                       VARCHAR2(100) not null,
+  RESIDENTIALADDRESSTYPE      VARCHAR2(100),
+  RESIDENTIALPROVINCE         VARCHAR2(100),
+  RESIDENTIALCITY             VARCHAR2(100),
+  RESIDENTIALDISTRICT         VARCHAR2(100),
+  RESIDENTIALDETAILEDADDRESS  VARCHAR2(100),
+  RESIDENTIALPOSTCODE         VARCHAR2(100),
+  CONTACTADDRESSTYPE          VARCHAR2(100),
+  CONTACTPROVINCE             VARCHAR2(100),
+  CONTACTCITY                 VARCHAR2(100),
+  CONTACTDISTRICT             VARCHAR2(100),
+  CONTACTDETAILEDADDRESS      VARCHAR2(100),
+  CONTACTPOSTCODE             VARCHAR2(100),
+  HOMEADDRESSTYPE             VARCHAR2(100),
+  HOMEPROVINCE                VARCHAR2(100),
+  HOMECITY                    VARCHAR2(100),
+  HOMEDISTRICT                VARCHAR2(100),
+  HOMEDETAILEDADDRESS         VARCHAR2(100),
+  HOMEPOSTCODE                VARCHAR2(100),
+  PERMANENTADDRESSTYPE        VARCHAR2(100),
+  PERMANENTPROVINCE           VARCHAR2(100),
+  PERMANENTCITY               VARCHAR2(100),
+  PERMANENTDISTRICT           VARCHAR2(100),
+  PERMANENTDETAILEDADDRESS    VARCHAR2(100),
+  PERMANENTPOSTCODE           VARCHAR2(100),
+  PREVIOUADDRESSTYPE          VARCHAR2(100),
+  PREVIOUPROVINCE             VARCHAR2(100),
+  PREVIOUCITY                 VARCHAR2(100),
+  PREVIOUDISTRICT             VARCHAR2(100),
+  PREVIOUDETAILEDADDRESS      VARCHAR2(100),
+  PREVIOUPOSTCODE             VARCHAR2(100),
+  PREVIOUCOMPANY              VARCHAR2(100),
+  PREVIOUCOMPANYADDRESS       VARCHAR2(100),
+  PREVIOUPOSITION             VARCHAR2(100),
+  PREVIOUINDUSTRYTYPE         VARCHAR2(100),
+  PREVIOUOCCUPATION           VARCHAR2(100),
+  PREVIOUEMAILADDRESS         VARCHAR2(100),
+  PREVIOUINCOME               VARCHAR2(100),
+  PREVIOUMARITALSTATUS        VARCHAR2(100),
+  PREVIOUHEIGHT               VARCHAR2(100),
+  PREVIOUWEIGHT               VARCHAR2(100),
+  PREVIOUINCOMESOURCE         VARCHAR2(100),
+  PREVIOUWEALTHSOURCE         VARCHAR2(100),
+  PREVIOUTELEPHONESOURCE      VARCHAR2(100),
+  PREVIOUHEALTHCARE           VARCHAR2(100),
+  PREVIOUFAMILYINCOME         VARCHAR2(100),
+  ERESIDENTIALADDRESSTYPE     VARCHAR2(100),
+  ERESIDENTIALPROVINCE        VARCHAR2(100),
+  ERESIDENTIALCITY            VARCHAR2(100),
+  ERESIDENTIALDISTRICT        VARCHAR2(100),
+  ERESIDENTIALDETAILEDADDRESS VARCHAR2(100),
+  COMPANYADDRESS1             VARCHAR2(100),
+  COMPANYADDRESS5             VARCHAR2(100),
+  COMPANYADDRESS4             VARCHAR2(100),
+  COMPANYADDRESS3             VARCHAR2(100),
+  COMPANYADDRESS2             VARCHAR2(100),
+  WORKADDRESSTYPE             VARCHAR2(100),
+  WORKCITY                    VARCHAR2(100),
+  WORKPROVINCE                VARCHAR2(100),
+  WORKPOSITION                VARCHAR2(100),
+  WORKDETAILEDADDRESS         VARCHAR2(100),
+  WORKDISTRICT                VARCHAR2(100),
+  OCCUPATION                  VARCHAR2(100),
+  INDUSTRYTYPE                VARCHAR2(100),
+  INCOME                      VARCHAR2(100),
+  EMAILADDRESS                VARCHAR2(100),
+  FAMILYINCOME                VARCHAR2(100),
+  ECONTACTADDRESSTYPE         VARCHAR2(100),
+  ECONTACTPROVINCE            VARCHAR2(100),
+  ECONTACTCITY                VARCHAR2(100),
+  ECONTACTDISTRICT            VARCHAR2(100),
+  ECONTACTDETAILEDADDRESS     VARCHAR2(100),
+  EHOMEADDRESSTYPE            VARCHAR2(100),
+  EHOMEPROVINCE               VARCHAR2(100),
+  EHOMECITY                   VARCHAR2(100),
+  EHOMEDISTRICT               VARCHAR2(100),
+  EHOMEDETAILEDADDRESS        VARCHAR2(100),
+  EPERMANENTADDRESSTYPE       VARCHAR2(100),
+  EPERMANENTPROVINCE          VARCHAR2(100),
+  EPERMANENTCITY              VARCHAR2(100),
+  EPERMANENTDISTRICT          VARCHAR2(100),
+  EPERMANENTDETAILEDADDRESS   VARCHAR2(100),
+  EPREVIOUADDRESSTYPE         VARCHAR2(100),
+  EPREVIOUPROVINCE            VARCHAR2(100),
+  EPREVIOUCITY                VARCHAR2(100),
+  EPREVIOUDISTRICT            VARCHAR2(100),
+  EPREVIOUDETAILEDADDRESS     VARCHAR2(100)
+)
+tablespace USERS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 16
+    next 8
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the columns 
+comment on column LDCUSTOMERADDRESS.OCCUPATION
+  is '职业代码Occ Code';
+comment on column LDCUSTOMERADDRESS.INDUSTRYTYPE
+  is '行业类型';
+comment on column LDCUSTOMERADDRESS.INCOME
+  is '收入';
+comment on column LDCUSTOMERADDRESS.EMAILADDRESS
+  is '邮箱地址';
+comment on column LDCUSTOMERADDRESS.FAMILYINCOME
+  is '家庭收入';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table LDCUSTOMERADDRESS
+  add constraint CCC primary key (CIFID)
+  using index 
+  tablespace USERS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+
+
+
+
+-- Create table
+create table LDHUBFLAG
+(
+  ID           VARCHAR2(3),
+  BRCCODE      VARCHAR2(10),
+  HUBMESSAGEID VARCHAR2(20),
+  DESCRIPTION  VARCHAR2(100)
+)
+tablespace USERS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64
+    next 1
+    minextents 1
+    maxextents unlimited
+  );
+
+
+
+
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('1', '000', '', 'Susscceful');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('2', 'Y01', 'LYB0001', 'Invalid request message type');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('3', 'Y02', 'LYB0002', 'Invalid Customer Number');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('4', 'Y03', 'LYB0003', 'Customer Doesn''t Exit');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('5', 'Y04', 'LYB0004', 'Error occur when Retrieve FATCA information');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('6', 'Y05', 'LYB0005', 'Transaction fail');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('7', 'Y06', 'LYB0006', 'Transaction not found');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('8', 'Y07', 'LYB0007', 'YBT Transaction Sequence No. Not allow blanks');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('9', 'Y08', 'LYB0008', 'YBT Transaction Sequence Already Exist');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('10', 'Y09', 'LYB0009', 'Only support Today''s reversal');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('11', 'Y10', 'LYB00010', 'Original Txn has already been Reversed');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('12', 'Y11', 'LYB0011', 'Original Txn is not Successful, not allow to be reversal');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('13', 'Y12', 'LYB0012', 'Original Txn is a reversal, not allow to be reversal');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('14', 'Y13', 'LYB0013', 'Original Txn doesn''t Exist');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('15', 'Y14', 'LYB0014', 'The A/C in Original Txn doesn''t Exist');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('16', 'Y15', 'LYB0015', 'A/C status not available');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('17', 'Y16', 'LYB0016', 'Account Closed');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('18', 'Y17', 'LYB0017', 'Can''t retrieve the Suspense A/C');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('19', 'Y18', 'LYB0018', 'A/C number is invalid');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('20', 'Y19', 'LYB0019', 'Insufficient funds in suspense account');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('21', 'Y20', 'LYB0020', 'Suspense A/C is not Valid');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('22', 'Y21', 'LYB0021', 'Error occur when call application program , please contact IT support');
+
+insert into LDHUBFLAG (ID, BRCCODE, HUBMESSAGEID, DESCRIPTION)
+values ('23', 'Y22', 'LYB0022', 'Please input the detail information');
+
+commit;
+
+
+
