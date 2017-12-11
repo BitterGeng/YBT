@@ -1,0 +1,1781 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosoft.service.business.db.dao.NewContEnterDao">
+	<resultMap id="BaseResultMap" type="com.sinosoft.service.business.db.vo.LCContVo" >
+    <id column="TRANSNO" property="transno" jdbcType="VARCHAR" />
+    <id column="CONTNO" property="contno" jdbcType="VARCHAR" />
+    <result column="PROPOSALCONTNO" property="proposalcontno" jdbcType="VARCHAR" />
+    <result column="PRTNO" property="prtno" jdbcType="VARCHAR" />
+    <result column="CONTTYPE" property="conttype" jdbcType="VARCHAR" />
+    <result column="FAMILYTYPE" property="familytype" jdbcType="VARCHAR" />
+    <result column="FAMILYID" property="familyid" jdbcType="VARCHAR" />
+    <result column="POLTYPE" property="poltype" jdbcType="VARCHAR" />
+    <result column="CARDFLAG" property="cardflag" jdbcType="VARCHAR" />
+    <result column="MANAGECOM" property="managecom" jdbcType="VARCHAR" />
+    <result column="EXECUTECOM" property="executecom" jdbcType="VARCHAR" />
+    <result column="AGENTCOM" property="agentcom" jdbcType="VARCHAR" />
+    <result column="AGENTCODE" property="agentcode" jdbcType="VARCHAR" />
+    <result column="AGENTGROUP" property="agentgroup" jdbcType="VARCHAR" />
+    <result column="AGENTCODE1" property="agentcode1" jdbcType="VARCHAR" />
+    <result column="AGENTTYPE" property="agenttype" jdbcType="VARCHAR" />
+    <result column="INSURANCECOM" property="insurancecom" jdbcType="VARCHAR" />
+    <result column="INSURANCEMANAGECOM" property="insurancemanagecom" jdbcType="VARCHAR" />
+    <result column="SALECHNL" property="salechnl" jdbcType="VARCHAR" />
+    <result column="HANDLER" property="handler" jdbcType="VARCHAR" />
+    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="APPNTNO" property="appntno" jdbcType="VARCHAR" />
+    <result column="APPNTNAME" property="appntname" jdbcType="VARCHAR" />
+    <result column="APPNTSEX" property="appntsex" jdbcType="VARCHAR" />
+    <result column="APPNTBIRTHDAY" property="appntbirthday" jdbcType="TIMESTAMP" />
+    <result column="APPNTIDTYPE" property="appntidtype" jdbcType="VARCHAR" />
+    <result column="APPNTIDNO" property="appntidno" jdbcType="VARCHAR" />
+    <result column="INSUREDNO" property="insuredno" jdbcType="VARCHAR" />
+    <result column="INSUREDNAME" property="insuredname" jdbcType="VARCHAR" />
+    <result column="INSUREDSEX" property="insuredsex" jdbcType="VARCHAR" />
+    <result column="INSUREDBIRTHDAY" property="insuredbirthday" jdbcType="TIMESTAMP" />
+    <result column="INSUREDIDTYPE" property="insuredidtype" jdbcType="VARCHAR" />
+    <result column="INSUREDIDNO" property="insuredidno" jdbcType="VARCHAR" />
+    <result column="PAYLOCATION" property="paylocation" jdbcType="VARCHAR" />
+    <result column="OUTPAYFLAG" property="outpayflag" jdbcType="VARCHAR" />
+    <result column="GETPOLMODE" property="getpolmode" jdbcType="VARCHAR" />
+    <result column="SIGNCOM" property="signcom" jdbcType="VARCHAR" />
+    <result column="SIGNDATE" property="signdate" jdbcType="TIMESTAMP" />
+    <result column="SIGNTIME" property="signtime" jdbcType="VARCHAR" />
+    <result column="BANKCODE" property="bankcode" jdbcType="VARCHAR" />
+    <result column="BANKACCNO" property="bankaccno" jdbcType="VARCHAR" />
+    <result column="ACCNAME" property="accname" jdbcType="VARCHAR" />
+    <result column="PRINTCOUNT" property="printcount" jdbcType="DECIMAL" />
+    <result column="LOSTTIMES" property="losttimes" jdbcType="DECIMAL" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="PEOPLES" property="peoples" jdbcType="DECIMAL" />
+    <result column="MULT" property="mult" jdbcType="DECIMAL" />
+    <result column="PREM" property="prem" jdbcType="DECIMAL" />
+    <result column="AMNT" property="amnt" jdbcType="DECIMAL" />
+    <result column="SUMPREM" property="sumprem" jdbcType="DECIMAL" />
+    <result column="FIRSTPAYDATE" property="firstpaydate" jdbcType="TIMESTAMP" />
+    <result column="APPROVETIME" property="approvetime" jdbcType="VARCHAR" />
+    <result column="APPFLAG" property="appflag" jdbcType="VARCHAR" />
+    <result column="POLAPPLYDATE" property="polapplydate" jdbcType="TIMESTAMP" />
+    <result column="STATE" property="state" jdbcType="VARCHAR" />
+    <result column="FIRSTTRIALOPERATOR" property="firsttrialoperator" jdbcType="VARCHAR" />
+    <result column="FIRSTTRIALDATE" property="firsttrialdate" jdbcType="TIMESTAMP" />
+    <result column="FIRSTTRIALTIME" property="firsttrialtime" jdbcType="VARCHAR" />
+    <result column="RECEIVEOPERATOR" property="receiveoperator" jdbcType="VARCHAR" />
+    <result column="RECEIVEDATE" property="receivedate" jdbcType="TIMESTAMP" />
+    <result column="CHARGERATE" property="chargerate" jdbcType="VARCHAR" />
+    <result column="TEMPFEENO" property="tempfeeno" jdbcType="VARCHAR" />
+    <result column="SELLTYPE" property="selltype" jdbcType="VARCHAR" />
+    <result column="FORCEUWFLAG" property="forceuwflag" jdbcType="VARCHAR" />
+    <result column="FORCEUWREASON" property="forceuwreason" jdbcType="VARCHAR" />
+    <result column="NEWBANKCODE" property="newbankcode" jdbcType="VARCHAR" />
+    <result column="NEWBANKACCNO" property="newbankaccno" jdbcType="VARCHAR" />
+    <result column="NEWACCNAME" property="newaccname" jdbcType="VARCHAR" />
+    <result column="NEWPAYMODE" property="newpaymode" jdbcType="VARCHAR" />
+    <result column="AGENTBANKCODE" property="agentbankcode" jdbcType="VARCHAR" />
+    <result column="BANKAGENT" property="bankagent" jdbcType="VARCHAR" />
+    <result column="ORGANCOMCODE" property="organcomcode" jdbcType="VARCHAR" />
+    <result column="OPERATOR" property="operator" jdbcType="VARCHAR" />
+    <result column="MAKEDATE" property="makedate" jdbcType="TIMESTAMP" />
+    <result column="MAKETIME" property="maketime" jdbcType="VARCHAR" />
+    <result column="MODIFYDATE" property="modifydate" jdbcType="TIMESTAMP" />
+    <result column="MODIFYTIME" property="modifytime" jdbcType="VARCHAR" />
+    <result column="AGENTNAME" property="agentname" jdbcType="VARCHAR" />
+    <result column="GRPCONTNO" property="grpcontno" jdbcType="VARCHAR" />
+    <result column="RECEIVETIME" property="receivetime" jdbcType="VARCHAR" />
+    <result column="RISKCODE" property="riskcode" jdbcType="VARCHAR" />
+    <result column="ACCOUNTBALANCE" property="accountbalance" jdbcType="DECIMAL" />
+    <result column="DEBITFLAG" property="debitflag" jdbcType="VARCHAR" />
+    <result column="DELAYEDDEBIT" property="delayeddebit" jdbcType="TIMESTAMP" />
+    <result column="HESITATIONFLAG" property="hesitationflag" jdbcType="VARCHAR" />
+    <result column="INVESTMENTSTARTDATE" property="investmentstartdate" jdbcType="TIMESTAMP" />
+    <result column="INVESTMENTSTARTDATEFLAG" property="investmentstartdateflag" jdbcType="VARCHAR" />
+    <result column="ACCTUSERNAME" property="acctusername" jdbcType="VARCHAR" />
+    <result column="ACCTTYPE" property="accttype" jdbcType="VARCHAR" />
+    <result column="DEPOSITBANK" property="depositbank" jdbcType="VARCHAR" />
+    <result column="DEDUCTIONSTYPE" property="deductionstype" jdbcType="VARCHAR" />
+    <result column="PREMIUMBUDGET" property="premiumbudget" jdbcType="VARCHAR" />
+    <result column="CHARGECODE" property="chargecode" jdbcType="VARCHAR" />
+  </resultMap>
+	<resultMap id="BaseResultMap1" type="com.sinosoft.service.business.db.vo.LCAppntVo">
+		<id column="TRANSNO" property="transno" jdbcType="VARCHAR" />
+		<id column="CONTNO" property="contno" jdbcType="VARCHAR" />
+		<result column="PRTNO" property="prtno" jdbcType="VARCHAR" />
+		<result column="GRPCONTNO" property="grpcontno" jdbcType="VARCHAR" />
+		<result column="APPNTNO" property="appntno" jdbcType="VARCHAR" />
+		<result column="RELATIONTOLCINSURED" property="relationtolcinsured"
+			jdbcType="VARCHAR" />
+		<result column="APPNTSTARTDATE" property="appntstartdate"
+			jdbcType="TIMESTAMP" />
+		<result column="APPNTNAME" property="appntname" jdbcType="VARCHAR" />
+		<result column="APPNTSEX" property="appntsex" jdbcType="VARCHAR" />
+		<result column="APPNTBIRTHDAY" property="appntbirthday"
+			jdbcType="TIMESTAMP" />
+		<result column="APPNTENDDATE" property="appntenddate" jdbcType="TIMESTAMP" />
+		<result column="IDTYPE" property="idtype" jdbcType="VARCHAR" />
+		<result column="IDNO" property="idno" jdbcType="VARCHAR" />
+		<result column="NATIVEPLACE" property="nativeplace" jdbcType="VARCHAR" />
+		<result column="IDSUBMIT" property="idsubmit" jdbcType="VARCHAR" />
+		<result column="RGTADDRESS" property="rgtaddress" jdbcType="VARCHAR" />
+		<result column="HEALTH" property="health" jdbcType="VARCHAR" />
+		<result column="STATURE" property="stature" jdbcType="DECIMAL" />
+		<result column="AVOIRDUPOIS" property="avoirdupois" jdbcType="DECIMAL" />
+		<result column="CREDITGRADE" property="creditgrade" jdbcType="VARCHAR" />
+		<result column="BANKCODE" property="bankcode" jdbcType="VARCHAR" />
+		<result column="BANKACCNO" property="bankaccno" jdbcType="VARCHAR" />
+		<result column="ACCNAME" property="accname" jdbcType="VARCHAR" />
+		<result column="SALARY" property="salary" jdbcType="DECIMAL" />
+		<result column="OCCUPATIONCODE" property="occupationcode"
+			jdbcType="VARCHAR" />
+		<result column="COMPANY" property="company" jdbcType="VARCHAR" />
+		<result column="RESPONSIBILITY" property="responsibility"
+			jdbcType="VARCHAR" />
+		<result column="MANAGECOM" property="managecom" jdbcType="VARCHAR" />
+		<result column="OPERATOR" property="operator" jdbcType="VARCHAR" />
+		<result column="MAKEDATE" property="makedate" jdbcType="TIMESTAMP" />
+		<result column="MAKETIME" property="maketime" jdbcType="VARCHAR" />
+		<result column="MODIFYDATE" property="modifydate" jdbcType="TIMESTAMP" />
+		<result column="MODIFYTIME" property="modifytime" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="BaseResultMap2" type="com.sinosoft.service.business.db.vo.LmriskVo">
+		<id column="RISKCODE" property="riskcode" jdbcType="VARCHAR" />
+    <id column="INSURANCECOM" property="insurancecom" jdbcType="VARCHAR" />
+    <result column="CHAR1" property="char1" jdbcType="VARCHAR" />
+    <result column="CHAR2" property="char2" jdbcType="VARCHAR" />
+    <result column="CHAR3" property="char3" jdbcType="VARCHAR" />
+    <result column="CHAR4" property="char4" jdbcType="VARCHAR" />
+    <result column="CHAR5" property="char5" jdbcType="VARCHAR" />
+    <result column="CHAR6" property="char6" jdbcType="VARCHAR" />
+    <result column="CHECKDEFFLAG" property="checkdefflag" jdbcType="VARCHAR" />
+    <result column="CHECKFLAG" property="checkflag" jdbcType="VARCHAR" />
+    <result column="DESTRATE" property="destrate" jdbcType="FLOAT" />
+    <result column="ENDDATE" property="enddate" jdbcType="VARCHAR" />
+    <result column="INSUACCFLAG" property="insuaccflag" jdbcType="VARCHAR" />
+    <result column="MNGCOM" property="mngcom" jdbcType="VARCHAR" />
+    <result column="OPERATOR" property="operator" jdbcType="VARCHAR" />
+    <result column="ORIGRISKCODE" property="origriskcode" jdbcType="VARCHAR" />
+    <result column="RISKNAME" property="riskname" jdbcType="VARCHAR" />
+    <result column="RISKPERIOD" property="riskperiod" jdbcType="VARCHAR" />
+    <result column="RISKPROP" property="riskprop" jdbcType="VARCHAR" />
+    <result column="RISKSHORTNAME" property="riskshortname" jdbcType="VARCHAR" />
+    <result column="RISKTYPE" property="risktype" jdbcType="VARCHAR" />
+    <result column="RISKVER" property="riskver" jdbcType="VARCHAR" />
+    <result column="SALESCHL" property="saleschl" jdbcType="VARCHAR" />
+    <result column="SIGN" property="sign" jdbcType="VARCHAR" />
+    <result column="STARTDATE" property="startdate" jdbcType="VARCHAR" />
+    <result column="SUBMITFLAG" property="submitflag" jdbcType="VARCHAR" />
+    <result column="SUBRISKFLAG" property="subriskflag" jdbcType="VARCHAR" />
+    <result column="SUBRISKVER" property="subriskver" jdbcType="VARCHAR" />
+    <result column="RISK" property="risk" jdbcType="VARCHAR" />
+
+
+	</resultMap>
+	<sql id="Base_Column_List" >
+    TRANSNO, CONTNO, PROPOSALCONTNO, PRTNO, CONTTYPE, FAMILYTYPE, FAMILYID, POLTYPE, 
+    CARDFLAG, MANAGECOM, EXECUTECOM, AGENTCOM, AGENTCODE, AGENTGROUP, AGENTCODE1, AGENTTYPE, 
+    INSURANCECOM, INSURANCEMANAGECOM, SALECHNL, HANDLER, PASSWORD, APPNTNO, APPNTNAME, 
+    APPNTSEX, APPNTBIRTHDAY, APPNTIDTYPE, APPNTIDNO, INSUREDNO, INSUREDNAME, INSUREDSEX, 
+    INSUREDBIRTHDAY, INSUREDIDTYPE, INSUREDIDNO, PAYLOCATION, OUTPAYFLAG, GETPOLMODE, 
+    SIGNCOM, SIGNDATE, SIGNTIME, BANKCODE, BANKACCNO, ACCNAME, PRINTCOUNT, LOSTTIMES, 
+    REMARK, PEOPLES, MULT, PREM, AMNT, SUMPREM, FIRSTPAYDATE, APPROVETIME, APPFLAG, POLAPPLYDATE, 
+    STATE, FIRSTTRIALOPERATOR, FIRSTTRIALDATE, FIRSTTRIALTIME, RECEIVEOPERATOR, RECEIVEDATE, 
+    CHARGERATE, TEMPFEENO, SELLTYPE, FORCEUWFLAG, FORCEUWREASON, NEWBANKCODE, NEWBANKACCNO, 
+    NEWACCNAME, NEWPAYMODE, AGENTBANKCODE, BANKAGENT, ORGANCOMCODE, OPERATOR, MAKEDATE, 
+    MAKETIME, MODIFYDATE, MODIFYTIME, AGENTNAME, GRPCONTNO, RECEIVETIME, RISKCODE, ACCOUNTBALANCE, 
+    DEBITFLAG, DELAYEDDEBIT, HESITATIONFLAG, INVESTMENTSTARTDATE, INVESTMENTSTARTDATEFLAG, 
+    ACCTUSERNAME, ACCTTYPE, DEPOSITBANK,DEDUCTIONSTYPE,PREMIUMBUDGET,CHARGECODE
+  </sql>
+	<sql id="Base_Column_List1">
+		TRANSNO, CONTNO, PRTNO, APPNTNO, RELATIONTOLCINSURED, APPNTSTARTDATE,
+		APPNTNAME, GRPCONTNO,
+		APPNTSEX, APPNTBIRTHDAY, APPNTENDDATE, IDTYPE, IDNO, NATIVEPLACE, IDSUBMIT,
+		RGTADDRESS,
+		HEALTH, STATURE, AVOIRDUPOIS, CREDITGRADE, BANKCODE, BANKACCNO, ACCNAME,
+		SALARY,
+		OCCUPATIONCODE, COMPANY, RESPONSIBILITY, MANAGECOM, OPERATOR, MAKEDATE, MAKETIME,
+		MODIFYDATE, MODIFYTIME,OTHERRESPONSIBILITY
+	</sql>
+	<sql id="Base_Column_List2">
+		 RISKCODE, INSURANCECOM, CHAR1, CHAR2, CHAR3, CHAR4, CHAR5, CHAR6, CHECKDEFFLAG, CHECKFLAG, 
+    DESTRATE, ENDDATE, INSUACCFLAG, MNGCOM, OPERATOR, ORIGRISKCODE, RISKNAME, RISKPERIOD, 
+    RISKPROP, RISKSHORTNAME, RISKTYPE, RISKVER, SALESCHL, SIGN, STARTDATE, SUBMITFLAG, 
+    SUBRISKFLAG, SUBRISKVER, RISK
+	</sql>
+	
+	<select id="selectSign" parameterType="String" resultType="String">
+	select cityname from areacodefull where citycode in(select c.address from ldcom c where c.comcode in(select l.companycode from lduser l where emplid=#{emplID}))
+	
+	</select>
+	<select id="selectCity" parameterType="String" resultType="String">
+	select l.companycode from lduser l where emplid=#{emplID}
+	</select>
+	
+	<sql id="Base_Column_List3">
+		AGENTCOM, NAME, STATES, COOPERATIONDATE, CHANNELTYPE, LICENSESTARTDATE,
+		OPERATOR,
+		REMARK, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME
+	</sql>
+	<sql id="Base_Column_List4">
+		MANAGECOM,POLAPPLYDATE,GRPCONTNO,PROPOSALCONTNO,PREM,APPFLAG,DEBITFLAG,TRANSNO,
+		AGENTCODE,CHARGECODE
+	</sql>
+	<sql id="Base_Column_List5">
+		PROPOSALCONTNO, 
+	    MANAGECOM, 
+	    TRANSNO
+	</sql>
+	
+	<select id="selectTransno" resultType="String">
+		select SEQ_ID.nextval from dual
+	</select>
+
+	<select id="selectAppntno" resultType="String">
+		select APPNTNO.nextval from dual
+	</select>
+
+	<select id="searchRiskTypeBean" resultType="com.sinosoft.service.business.db.vo.LmriskVo"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List2" />
+		from lmrisk where riskcode=#{riskcode,jdbcType=VARCHAR}
+	</select>
+
+
+	<select id="selectLmrisk" resultMap="BaseResultMap2"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List2" />
+		from lmrisk where insurancecom=#{insurancecom,jdbcType=VARCHAR} and subriskflag='M'
+	</select>
+	
+	<select id="searchAdditionalRisk" resultMap="BaseResultMap2" parameterType="String">
+		select
+		<include refid="Base_Column_List2"/>
+		from lmrisk where riskcode in(select relariskcode from LMRiskRela
+		where riskcode=#{riskcode,jdbcType=VARCHAR})
+	</select>
+	
+	<select id="searchMainRisk" resultMap="BaseResultMap2" parameterType="String">
+		select
+		<include refid="Base_Column_List2"/>
+		from lmrisk where subriskflag='M'and insurancecom=#{insurancecom,jdbcType=VARCHAR}
+	</select>
+
+
+	<select id="selectFromLacom" resultType="com.sinosoft.service.business.db.vo.InsuComVo">
+		select
+		<include refid="Base_Column_List3" />
+		from lacom
+	</select>
+
+	<select id="selectFromLacomByAgentcom" resultType="com.sinosoft.service.business.db.vo.InsuComVo">
+		select
+		<include refid="Base_Column_List3" />
+		from lacom where AGENTCOM= #{agentcom,jdbcType=VARCHAR}
+	</select>
+
+	<select id="selectByLmrisk" resultMap="BaseResultMap2"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List2" />
+		from lmrisk where riskcode in(select relariskcode from LMRISKRELA
+		where riskcode=#{riskcode,jdbcType=VARCHAR})
+	</select>
+
+	<select id="selectByLmrisk1" resultMap="BaseResultMap2"
+		parameterType="String">
+
+		select
+		<include refid="Base_Column_List2" />
+		from lmrisk where riskcode in(select relariskcode from LMRISKRELA
+		where riskcode=#{riskcode,jdbcType=VARCHAR})
+	</select>
+
+
+	<insert id="saveLCContBean" parameterType="com.sinosoft.service.business.db.vo.LCContVo">
+		insert into LCCONT
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="transno != null">
+				TRANSNO,
+			</if>
+			<if test="contno != null">
+				CONTNO,
+			</if>
+			<if test="proposalcontno != null">
+				PROPOSALCONTNO,
+			</if>
+			<if test="prtno != null">
+				PRTNO,
+			</if>
+			<if test="conttype != null">
+				CONTTYPE,
+			</if>
+			<if test="familytype != null">
+				FAMILYTYPE,
+			</if>
+			<if test="familyid != null">
+				FAMILYID,
+			</if>
+			<if test="poltype != null">
+				POLTYPE,
+			</if>
+			<if test="cardflag != null">
+				CARDFLAG,
+			</if>
+			<if test="managecom != null">
+				MANAGECOM,
+			</if>
+			<if test="executecom != null">
+				EXECUTECOM,
+			</if>
+			<if test="agentcom != null">
+				AGENTCOM,
+			</if>
+			<if test="agentcode != null">
+				AGENTCODE,
+			</if>
+			<if test="agentgroup != null">
+				AGENTGROUP,
+			</if>
+			<if test="agentcode1 != null">
+				AGENTCODE1,
+			</if>
+			<if test="agenttype != null">
+				AGENTTYPE,
+			</if>
+			<if test="insurancecom != null">
+				INSURANCECOM,
+			</if>
+			<if test="insurancemanagecom != null">
+				INSURANCEMANAGECOM,
+			</if>
+			<if test="salechnl != null">
+				SALECHNL,
+			</if>
+			<if test="handler != null">
+				HANDLER,
+			</if>
+			<if test="password != null">
+				PASSWORD,
+			</if>
+			<if test="appntno != null">
+				APPNTNO,
+			</if>
+			<if test="appntname != null">
+				APPNTNAME,
+			</if>
+			<if test="appntsex != null">
+				APPNTSEX,
+			</if>
+			<if test="appntbirthday != null">
+				APPNTBIRTHDAY,
+			</if>
+			<if test="appntidtype != null">
+				APPNTIDTYPE,
+			</if>
+			<if test="appntidno != null">
+				APPNTIDNO,
+			</if>
+			<if test="insuredno != null">
+				INSUREDNO,
+			</if>
+			<if test="insuredname != null">
+				INSUREDNAME,
+			</if>
+			<if test="insuredsex != null">
+				INSUREDSEX,
+			</if>
+			<if test="insuredbirthday != null">
+				INSUREDBIRTHDAY,
+			</if>
+			<if test="insuredidtype != null">
+				INSUREDIDTYPE,
+			</if>
+			<if test="insuredidno != null">
+				INSUREDIDNO,
+			</if>
+			<if test="paylocation != null">
+				PAYLOCATION,
+			</if>
+			<if test="outpayflag != null">
+				OUTPAYFLAG,
+			</if>
+			<if test="getpolmode != null">
+				GETPOLMODE,
+			</if>
+			<if test="signcom != null">
+				SIGNCOM,
+			</if>
+			<if test="signdate != null">
+				SIGNDATE,
+			</if>
+			<if test="signtime != null">
+				SIGNTIME,
+			</if>
+			<if test="bankcode != null">
+				BANKCODE,
+			</if>
+			<if test="bankaccno != null">
+				BANKACCNO,
+			</if>
+			<if test="accname != null">
+				ACCNAME,
+			</if>
+			<if test="printcount != null">
+				PRINTCOUNT,
+			</if>
+			<if test="losttimes != null">
+				LOSTTIMES,
+			</if>
+			<if test="remark != null">
+				REMARK,
+			</if>
+			<if test="peoples != null">
+				PEOPLES,
+			</if>
+			<if test="mult != null">
+				MULT,
+			</if>
+			<if test="prem != null">
+				PREM,
+			</if>
+			<if test="amnt != null">
+				AMNT,
+			</if>
+			<if test="sumprem != null">
+				SUMPREM,
+			</if>
+			<if test="firstpaydate != null">
+				FIRSTPAYDATE,
+			</if>
+			<if test="approvetime != null">
+				APPROVETIME,
+			</if>
+			<if test="appflag != null">
+				APPFLAG,
+			</if>
+			<if test="polapplydate != null">
+				POLAPPLYDATE,
+			</if>
+			<if test="state != null">
+				STATE,
+			</if>
+			<if test="firsttrialoperator != null">
+				FIRSTTRIALOPERATOR,
+			</if>
+			<if test="firsttrialdate != null">
+				FIRSTTRIALDATE,
+			</if>
+			<if test="firsttrialtime != null">
+				FIRSTTRIALTIME,
+			</if>
+			<if test="receiveoperator != null">
+				RECEIVEOPERATOR,
+			</if>
+			<if test="receivedate != null">
+				RECEIVEDATE,
+			</if>
+			<if test="chargerate != null">
+				CHARGERATE,
+			</if>
+			<if test="tempfeeno != null">
+				TEMPFEENO,
+			</if>
+			<if test="selltype != null">
+				SELLTYPE,
+			</if>
+			<if test="forceuwflag != null">
+				FORCEUWFLAG,
+			</if>
+			<if test="forceuwreason != null">
+				FORCEUWREASON,
+			</if>
+			<if test="newbankcode != null">
+				NEWBANKCODE,
+			</if>
+			<if test="newbankaccno != null">
+				NEWBANKACCNO,
+			</if>
+			<if test="newaccname != null">
+				NEWACCNAME,
+			</if>
+			<if test="newpaymode != null">
+				NEWPAYMODE,
+			</if>
+			<if test="agentbankcode != null">
+				AGENTBANKCODE,
+			</if>
+			<if test="bankagent != null">
+				BANKAGENT,
+			</if>
+			<if test="organcomcode != null">
+				ORGANCOMCODE,
+			</if>
+			<if test="operator != null">
+				OPERATOR,
+			</if>
+			<if test="makedate != null">
+				MAKEDATE,
+			</if>
+			<if test="maketime != null">
+				MAKETIME,
+			</if>
+			<if test="modifydate != null">
+				MODIFYDATE,
+			</if>
+			<if test="modifytime != null">
+				MODIFYTIME,
+			</if>
+			<if test="agentname != null">
+				AGENTNAME,
+			</if>
+			<if test="grpcontno != null">
+				GRPCONTNO,
+			</if>
+			<if test="receivetime != null">
+				RECEIVETIME,
+			</if>
+			<if test="accountbalance != null">
+				ACCOUNTBALANCE,
+			</if>
+			<if test="debitflag != null">
+				DEBITFLAG,
+			</if>
+			<if test="delayeddebit != null">
+				DELAYEDDEBIT,
+			</if>
+			<if test="hesitationflag != null">
+				HESITATIONFLAG,
+			</if>
+			<if test="riskcode != null">
+				RISKCODE,
+			</if>
+			<if test="depositBank != null">
+				DEPOSITBANK,
+			</if>
+			<if test="premiumBudget != null">
+				PREMIUMBUDGET,
+			</if>
+			<if test="chargecode != null" >
+       			 CHARGECODE,
+     		 </if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="transno != null">
+				#{transno,jdbcType=VARCHAR},
+			</if>
+			<if test="contno != null">
+				#{contno,jdbcType=VARCHAR},
+			</if>
+			<if test="proposalcontno != null">
+				#{proposalcontno,jdbcType=VARCHAR},
+			</if>
+			<if test="prtno != null">
+				#{prtno,jdbcType=VARCHAR},
+			</if>
+			<if test="conttype != null">
+				#{conttype,jdbcType=VARCHAR},
+			</if>
+			<if test="familytype != null">
+				#{familytype,jdbcType=VARCHAR},
+			</if>
+			<if test="familyid != null">
+				#{familyid,jdbcType=VARCHAR},
+			</if>
+			<if test="poltype != null">
+				#{poltype,jdbcType=VARCHAR},
+			</if>
+			<if test="cardflag != null">
+				#{cardflag,jdbcType=VARCHAR},
+			</if>
+			<if test="managecom != null">
+				#{managecom,jdbcType=VARCHAR},
+			</if>
+			<if test="executecom != null">
+				#{executecom,jdbcType=VARCHAR},
+			</if>
+			<if test="agentcom != null">
+				#{agentcom,jdbcType=VARCHAR},
+			</if>
+			<if test="agentcode != null">
+				#{agentcode,jdbcType=VARCHAR},
+			</if>
+			<if test="agentgroup != null">
+				#{agentgroup,jdbcType=VARCHAR},
+			</if>
+			<if test="agentcode1 != null">
+				#{agentcode1,jdbcType=VARCHAR},
+			</if>
+			<if test="agenttype != null">
+				#{agenttype,jdbcType=VARCHAR},
+			</if>
+			<if test="insurancecom != null">
+				#{insurancecom,jdbcType=VARCHAR},
+			</if>
+			<if test="insurancemanagecom != null">
+				#{insurancemanagecom,jdbcType=VARCHAR},
+			</if>
+			<if test="salechnl != null">
+				#{salechnl,jdbcType=VARCHAR},
+			</if>
+			<if test="handler != null">
+				#{handler,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="appntno != null">
+				#{appntno,jdbcType=VARCHAR},
+			</if>
+			<if test="appntname != null">
+				#{appntname,jdbcType=VARCHAR},
+			</if>
+			<if test="appntsex != null">
+				#{appntsex,jdbcType=VARCHAR},
+			</if>
+			<if test="appntbirthday != null">
+				#{appntbirthday,jdbcType=TIMESTAMP},
+			</if>
+			<if test="appntidtype != null">
+				#{appntidtype,jdbcType=VARCHAR},
+			</if>
+			<if test="appntidno != null">
+				#{appntidno,jdbcType=VARCHAR},
+			</if>
+			<if test="insuredno != null">
+				#{insuredno,jdbcType=VARCHAR},
+			</if>
+			<if test="insuredname != null">
+				#{insuredname,jdbcType=VARCHAR},
+			</if>
+			<if test="insuredsex != null">
+				#{insuredsex,jdbcType=VARCHAR},
+			</if>
+			<if test="insuredbirthday != null">
+				#{insuredbirthday,jdbcType=TIMESTAMP},
+			</if>
+			<if test="insuredidtype != null">
+				#{insuredidtype,jdbcType=VARCHAR},
+			</if>
+			<if test="insuredidno != null">
+				#{insuredidno,jdbcType=VARCHAR},
+			</if>
+			<if test="paylocation != null">
+				#{paylocation,jdbcType=VARCHAR},
+			</if>
+			<if test="outpayflag != null">
+				#{outpayflag,jdbcType=VARCHAR},
+			</if>
+			<if test="getpolmode != null">
+				#{getpolmode,jdbcType=VARCHAR},
+			</if>
+			<if test="signcom != null">
+				#{signcom,jdbcType=VARCHAR},
+			</if>
+			<if test="signdate != null">
+				#{signdate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="signtime != null">
+				#{signtime,jdbcType=VARCHAR},
+			</if>
+			<if test="bankcode != null">
+				#{bankcode,jdbcType=VARCHAR},
+			</if>
+			<if test="bankaccno != null">
+				#{bankaccno,jdbcType=VARCHAR},
+			</if>
+			<if test="accname != null">
+				#{accname,jdbcType=VARCHAR},
+			</if>
+			<if test="printcount != null">
+				#{printcount,jdbcType=DECIMAL},
+			</if>
+			<if test="losttimes != null">
+				#{losttimes,jdbcType=DECIMAL},
+			</if>
+			<if test="remark != null">
+				#{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="peoples != null">
+				#{peoples,jdbcType=DECIMAL},
+			</if>
+			<if test="mult != null">
+				#{mult,jdbcType=DECIMAL},
+			</if>
+			<if test="prem != null">
+				#{prem,jdbcType=DECIMAL},
+			</if>
+			<if test="amnt != null">
+				#{amnt,jdbcType=DECIMAL},
+			</if>
+			<if test="sumprem != null">
+				#{sumprem,jdbcType=DECIMAL},
+			</if>
+			<if test="firstpaydate != null">
+				#{firstpaydate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="approvetime != null">
+				#{approvetime,jdbcType=VARCHAR},
+			</if>
+			<if test="appflag != null">
+				#{appflag,jdbcType=VARCHAR},
+			</if>
+			<if test="polapplydate != null">
+				#{polapplydate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="state != null">
+				#{state,jdbcType=VARCHAR},
+			</if>
+			<if test="firsttrialoperator != null">
+				#{firsttrialoperator,jdbcType=VARCHAR},
+			</if>
+			<if test="firsttrialdate != null">
+				#{firsttrialdate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="firsttrialtime != null">
+				#{firsttrialtime,jdbcType=VARCHAR},
+			</if>
+			<if test="receiveoperator != null">
+				#{receiveoperator,jdbcType=VARCHAR},
+			</if>
+			<if test="receivedate != null">
+				#{receivedate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="chargerate != null">
+				#{chargerate,jdbcType=VARCHAR},
+			</if>
+			<if test="tempfeeno != null">
+				#{tempfeeno,jdbcType=VARCHAR},
+			</if>
+			<if test="selltype != null">
+				#{selltype,jdbcType=VARCHAR},
+			</if>
+			<if test="forceuwflag != null">
+				#{forceuwflag,jdbcType=VARCHAR},
+			</if>
+			<if test="forceuwreason != null">
+				#{forceuwreason,jdbcType=VARCHAR},
+			</if>
+			<if test="newbankcode != null">
+				#{newbankcode,jdbcType=VARCHAR},
+			</if>
+			<if test="newbankaccno != null">
+				#{newbankaccno,jdbcType=VARCHAR},
+			</if>
+			<if test="newaccname != null">
+				#{newaccname,jdbcType=VARCHAR},
+			</if>
+			<if test="newpaymode != null">
+				#{newpaymode,jdbcType=VARCHAR},
+			</if>
+			<if test="agentbankcode != null">
+				#{agentbankcode,jdbcType=VARCHAR},
+			</if>
+			<if test="bankagent != null">
+				#{bankagent,jdbcType=VARCHAR},
+			</if>
+			<if test="organcomcode != null">
+				#{organcomcode,jdbcType=VARCHAR},
+			</if>
+			<if test="operator != null">
+				#{operator,jdbcType=VARCHAR},
+			</if>
+			<if test="makedate != null">
+				#{makedate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="maketime != null">
+				#{maketime,jdbcType=VARCHAR},
+			</if>
+			<if test="modifydate != null">
+				#{modifydate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifytime != null">
+				#{modifytime,jdbcType=VARCHAR},
+			</if>
+			<if test="agentname != null">
+				#{agentname,jdbcType=VARCHAR},
+			</if>
+			<if test="grpcontno != null">
+				#{grpcontno,jdbcType=VARCHAR},
+			</if>
+			<if test="receivetime != null">
+				#{receivetime,jdbcType=VARCHAR},
+			</if>
+			<if test="accountbalance != null">
+				#{accountbalance,jdbcType=DECIMAL},
+			</if>
+			<if test="debitflag != null">
+				#{debitflag,jdbcType=VARCHAR},
+			</if>
+			<if test="delayeddebit != null">
+				#{delayeddebit,jdbcType=TIMESTAMP},
+			</if>
+			<if test="hesitationflag != null">
+				#{hesitationflag,jdbcType=VARCHAR},
+			</if>
+			<if test="riskcode != null">
+				#{riskcode,jdbcType=VARCHAR},
+			</if>
+			<if test="depositBank != null">
+				#{depositBank,jdbcType=VARCHAR},
+			</if>
+			<if test="premiumBudget != null">
+				#{premiumBudget,jdbcType=VARCHAR},
+			</if>
+			 <if test="chargecode != null" >
+	        #{chargecode,jdbcType=VARCHAR},
+	      </if>
+		</trim>
+	</insert>
+
+	<insert id="saveLCAppntBean" parameterType="com.sinosoft.service.business.db.vo.LCAppntVo">
+		insert into LCAPPNT
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="transno != null">
+				TRANSNO,
+			</if>
+			<if test="contno != null">
+				CONTNO,
+			</if>
+			<if test="prtno != null">
+				PRTNO,
+			</if>
+			<if test="appntno != null">
+				APPNTNO,
+			</if>
+			<if test="grpcontno != null">
+				GRPCONTNO,
+			</if>
+			<if test="relationtolcinsured != null">
+				RELATIONTOLCINSURED,
+			</if>
+			<if test="appntstartdate != null">
+				APPNTSTARTDATE,
+			</if>
+			<if test="appntname != null">
+				APPNTNAME,
+			</if>
+			<if test="appntsex != null">
+				APPNTSEX,
+			</if>
+			<if test="appntbirthday != null">
+				APPNTBIRTHDAY,
+			</if>
+			<if test="appntenddate != null">
+				APPNTENDDATE,
+			</if>
+			<if test="idtype != null">
+				IDTYPE,
+			</if>
+			<if test="idno != null">
+				IDNO,
+			</if>
+			<if test="nativeplace != null">
+				NATIVEPLACE,
+			</if>
+			<if test="idsubmit != null">
+				IDSUBMIT,
+			</if>
+			<if test="rgtaddress != null">
+				RGTADDRESS,
+			</if>
+			<if test="health != null">
+				HEALTH,
+			</if>
+			<if test="stature != null">
+				STATURE,
+			</if>
+			<if test="avoirdupois != null">
+				AVOIRDUPOIS,
+			</if>
+			<if test="creditgrade != null">
+				CREDITGRADE,
+			</if>
+			<if test="bankcode != null">
+				BANKCODE,
+			</if>
+			<if test="bankaccno != null">
+				BANKACCNO,
+			</if>
+			<if test="accname != null">
+				ACCNAME,
+			</if>
+			<if test="salary != null">
+				SALARY,
+			</if>
+			<if test="occupationcode != null">
+				OCCUPATIONCODE,
+			</if>
+			<if test="company != null">
+				COMPANY,
+			</if>
+			<if test="responsibility != null">
+				RESPONSIBILITY,
+			</if>
+			<if test="managecom != null">
+				MANAGECOM,
+			</if>
+			<if test="operator != null">
+				OPERATOR,
+			</if>
+			<if test="makedate != null">
+				MAKEDATE,
+			</if>
+			<if test="maketime != null">
+				MAKETIME,
+			</if>
+			<if test="modifydate != null">
+				MODIFYDATE,
+			</if>
+			<if test="modifytime != null">
+				MODIFYTIME,
+			</if>
+			<if test="otherresponsibility != null">
+				OTHERRESPONSIBILITY,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="transno != null">
+				#{transno,jdbcType=VARCHAR},
+			</if>
+			<if test="contno != null">
+				#{contno,jdbcType=VARCHAR},
+			</if>
+			<if test="prtno != null">
+				#{prtno,jdbcType=VARCHAR},
+			</if>
+			<if test="appntno != null">
+				#{appntno,jdbcType=VARCHAR},
+			</if>
+			<if test="grpcontno != null">
+				#{grpcontno,jdbcType=VARCHAR},
+			</if>
+			<if test="relationtolcinsured != null">
+				#{relationtolcinsured,jdbcType=VARCHAR},
+			</if>
+			<if test="appntstartdate != null">
+				#{appntstartdate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="appntname != null">
+				#{appntname,jdbcType=VARCHAR},
+			</if>
+			<if test="appntsex != null">
+				#{appntsex,jdbcType=VARCHAR},
+			</if>
+			<if test="appntbirthday != null">
+				#{appntbirthday,jdbcType=TIMESTAMP},
+			</if>
+			<if test="appntenddate != null">
+				#{appntenddate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="idtype != null">
+				#{idtype,jdbcType=VARCHAR},
+			</if>
+			<if test="idno != null">
+				#{idno,jdbcType=VARCHAR},
+			</if>
+			<if test="nativeplace != null">
+				#{nativeplace,jdbcType=VARCHAR},
+			</if>
+			<if test="idsubmit != null">
+				#{idsubmit,jdbcType=VARCHAR},
+			</if>
+			<if test="rgtaddress != null">
+				#{rgtaddress,jdbcType=VARCHAR},
+			</if>
+			<if test="health != null">
+				#{health,jdbcType=VARCHAR},
+			</if>
+			<if test="stature != null">
+				#{stature,jdbcType=DECIMAL},
+			</if>
+			<if test="avoirdupois != null">
+				#{avoirdupois,jdbcType=DECIMAL},
+			</if>
+			<if test="creditgrade != null">
+				#{creditgrade,jdbcType=VARCHAR},
+			</if>
+			<if test="bankcode != null">
+				#{bankcode,jdbcType=VARCHAR},
+			</if>
+			<if test="bankaccno != null">
+				#{bankaccno,jdbcType=VARCHAR},
+			</if>
+			<if test="accname != null">
+				#{accname,jdbcType=VARCHAR},
+			</if>
+			<if test="salary != null">
+				#{salary,jdbcType=DECIMAL},
+			</if>
+			<if test="occupationcode != null">
+				#{occupationcode,jdbcType=VARCHAR},
+			</if>
+			<if test="company != null">
+				#{company,jdbcType=VARCHAR},
+			</if>
+			<if test="responsibility != null">
+				#{responsibility,jdbcType=VARCHAR},
+			</if>
+			<if test="managecom != null">
+				#{managecom,jdbcType=VARCHAR},
+			</if>
+			<if test="operator != null">
+				#{operator,jdbcType=VARCHAR},
+			</if>
+			<if test="makedate != null">
+				#{makedate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="maketime != null">
+				#{maketime,jdbcType=VARCHAR},
+			</if>
+			<if test="modifydate != null">
+				#{modifydate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifytime != null">
+				#{modifytime,jdbcType=VARCHAR},
+			</if>
+			<if test="otherresponsibility != null">
+				#{otherresponsibility,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<select id="selectLccontToProposalcontno" resultType="com.sinosoft.service.business.db.vo.LCContVo"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from lccont where proposalcontno=#{proposalcontno,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="selectLccontToTransNo" resultType="com.sinosoft.service.business.db.vo.LCContVo" 
+		parameterType="String">
+		select
+		<include refid="Base_Column_List"/>
+		from lccont where transno=#{transNo,jdbcType=VARCHAR}	
+	</select>
+	
+	
+	
+	<select id="selectLccontFamilyid" resultType="com.sinosoft.service.business.db.vo.LCContVo" 
+		parameterType="String">
+		select
+		<include refid="Base_Column_List"/>
+		from lccont where familyid=#{familyid,jdbcType=VARCHAR}	
+	</select>
+	
+	
+	
+
+	<select id="selectLcappntToTransno" resultType="com.sinosoft.service.business.db.vo.LCAppntVo"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List1" />
+		from lcappnt where contno=#{contno,jdbcType=VARCHAR}
+	</select>
+	<update id="updateLCCont" parameterType="com.sinosoft.service.business.db.vo.LCContVo">
+		update LCCONT
+		<set>
+			<if test="proposalcontno != null">
+				PROPOSALCONTNO = #{proposalcontno,jdbcType=VARCHAR},
+			</if>
+			<if test="prtno != null">
+				PRTNO = #{prtno,jdbcType=VARCHAR},
+			</if>
+			<if test="conttype != null">
+				CONTTYPE = #{conttype,jdbcType=VARCHAR},
+			</if>
+			<if test="familytype != null">
+				FAMILYTYPE = #{familytype,jdbcType=VARCHAR},
+			</if>
+			<if test="familyid != null">
+				FAMILYID = #{familyid,jdbcType=VARCHAR},
+			</if>
+			<if test="poltype != null">
+				POLTYPE = #{poltype,jdbcType=VARCHAR},
+			</if>
+			<if test="cardflag != null">
+				CARDFLAG = #{cardflag,jdbcType=VARCHAR},
+			</if>
+			<if test="managecom != null">
+				MANAGECOM = #{managecom,jdbcType=VARCHAR},
+			</if>
+			<if test="executecom != null">
+				EXECUTECOM = #{executecom,jdbcType=VARCHAR},
+			</if>
+			<if test="agentcom != null">
+				AGENTCOM = #{agentcom,jdbcType=VARCHAR},
+			</if>
+			<if test="agentcode != null">
+				AGENTCODE = #{agentcode,jdbcType=VARCHAR},
+			</if>
+			<if test="agentgroup != null">
+				AGENTGROUP = #{agentgroup,jdbcType=VARCHAR},
+			</if>
+			<if test="agentcode1 != null">
+				AGENTCODE1 = #{agentcode1,jdbcType=VARCHAR},
+			</if>
+			<if test="agenttype != null">
+				AGENTTYPE = #{agenttype,jdbcType=VARCHAR},
+			</if>
+			<if test="insurancecom != null">
+				INSURANCECOM = #{insurancecom,jdbcType=VARCHAR},
+			</if>
+			<if test="insurancemanagecom != null">
+				INSURANCEMANAGECOM = #{insurancemanagecom,jdbcType=VARCHAR},
+			</if>
+			<if test="salechnl != null">
+				SALECHNL = #{salechnl,jdbcType=VARCHAR},
+			</if>
+			<if test="handler != null">
+				HANDLER = #{handler,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				PASSWORD = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="appntno != null">
+				APPNTNO = #{appntno,jdbcType=VARCHAR},
+			</if>
+			<if test="appntname != null">
+				APPNTNAME = #{appntname,jdbcType=VARCHAR},
+			</if>
+			<if test="appntsex != null">
+				APPNTSEX = #{appntsex,jdbcType=VARCHAR},
+			</if>
+			<if test="appntbirthday != null">
+				APPNTBIRTHDAY = #{appntbirthday,jdbcType=TIMESTAMP},
+			</if>
+			<if test="appntidtype != null">
+				APPNTIDTYPE = #{appntidtype,jdbcType=VARCHAR},
+			</if>
+			<if test="appntidno != null">
+				APPNTIDNO = #{appntidno,jdbcType=VARCHAR},
+			</if>
+			<if test="insuredno != null">
+				INSUREDNO = #{insuredno,jdbcType=VARCHAR},
+			</if>
+			<if test="insuredname != null">
+				INSUREDNAME = #{insuredname,jdbcType=VARCHAR},
+			</if>
+			<if test="insuredsex != null">
+				INSUREDSEX = #{insuredsex,jdbcType=VARCHAR},
+			</if>
+			<if test="insuredbirthday != null">
+				INSUREDBIRTHDAY = #{insuredbirthday,jdbcType=TIMESTAMP},
+			</if>
+			<if test="insuredidtype != null">
+				INSUREDIDTYPE = #{insuredidtype,jdbcType=VARCHAR},
+			</if>
+			<if test="insuredidno != null">
+				INSUREDIDNO = #{insuredidno,jdbcType=VARCHAR},
+			</if>
+			<if test="paylocation != null">
+				PAYLOCATION = #{paylocation,jdbcType=VARCHAR},
+			</if>
+			<if test="outpayflag != null">
+				OUTPAYFLAG = #{outpayflag,jdbcType=VARCHAR},
+			</if>
+			<if test="getpolmode != null">
+				GETPOLMODE = #{getpolmode,jdbcType=VARCHAR},
+			</if>
+			<if test="signcom != null">
+				SIGNCOM = #{signcom,jdbcType=VARCHAR},
+			</if>
+			<if test="signdate != null">
+				SIGNDATE = #{signdate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="signtime != null">
+				SIGNTIME = #{signtime,jdbcType=VARCHAR},
+			</if>
+			<if test="bankcode != null">
+				BANKCODE = #{bankcode,jdbcType=VARCHAR},
+			</if>
+			<if test="bankaccno != null">
+				BANKACCNO = #{bankaccno,jdbcType=VARCHAR},
+			</if>
+			<if test="accname != null">
+				ACCNAME = #{accname,jdbcType=VARCHAR},
+			</if>
+			<if test="printcount != null">
+				PRINTCOUNT = #{printcount,jdbcType=DECIMAL},
+			</if>
+			<if test="losttimes != null">
+				LOSTTIMES = #{losttimes,jdbcType=DECIMAL},
+			</if>
+			<if test="remark != null">
+				REMARK = #{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="peoples != null">
+				PEOPLES = #{peoples,jdbcType=DECIMAL},
+			</if>
+			<if test="mult != null">
+				MULT = #{mult,jdbcType=DECIMAL},
+			</if>
+			<if test="prem != null">
+				PREM = #{prem,jdbcType=DECIMAL},
+			</if>
+			<if test="amnt != null">
+				AMNT = #{amnt,jdbcType=DECIMAL},
+			</if>
+			<if test="sumprem != null">
+				SUMPREM = #{sumprem,jdbcType=DECIMAL},
+			</if>
+			<if test="firstpaydate != null">
+				FIRSTPAYDATE = #{firstpaydate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="approvetime != null">
+				APPROVETIME = #{approvetime,jdbcType=VARCHAR},
+			</if>
+			<if test="appflag != null">
+				APPFLAG = #{appflag,jdbcType=VARCHAR},
+			</if>
+			<if test="polapplydate != null">
+				POLAPPLYDATE = #{polapplydate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="state != null">
+				STATE = #{state,jdbcType=VARCHAR},
+			</if>
+			<if test="firsttrialoperator != null">
+				FIRSTTRIALOPERATOR = #{firsttrialoperator,jdbcType=VARCHAR},
+			</if>
+			<if test="firsttrialdate != null">
+				FIRSTTRIALDATE = #{firsttrialdate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="firsttrialtime != null">
+				FIRSTTRIALTIME = #{firsttrialtime,jdbcType=VARCHAR},
+			</if>
+			<if test="receiveoperator != null">
+				RECEIVEOPERATOR = #{receiveoperator,jdbcType=VARCHAR},
+			</if>
+			<if test="receivedate != null">
+				RECEIVEDATE = #{receivedate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="chargerate != null">
+				CHARGERATE = #{chargerate,jdbcType=VARCHAR},
+			</if>
+			<if test="tempfeeno != null">
+				TEMPFEENO = #{tempfeeno,jdbcType=VARCHAR},
+			</if>
+			<if test="selltype != null">
+				SELLTYPE = #{selltype,jdbcType=VARCHAR},
+			</if>
+			<if test="forceuwflag != null">
+				FORCEUWFLAG = #{forceuwflag,jdbcType=VARCHAR},
+			</if>
+			<if test="forceuwreason != null">
+				FORCEUWREASON = #{forceuwreason,jdbcType=VARCHAR},
+			</if>
+			<if test="newbankcode != null">
+				NEWBANKCODE = #{newbankcode,jdbcType=VARCHAR},
+			</if>
+			<if test="newbankaccno != null">
+				NEWBANKACCNO = #{newbankaccno,jdbcType=VARCHAR},
+			</if>
+			<if test="newaccname != null">
+				NEWACCNAME = #{newaccname,jdbcType=VARCHAR},
+			</if>
+			<if test="newpaymode != null">
+				NEWPAYMODE = #{newpaymode,jdbcType=VARCHAR},
+			</if>
+			<if test="agentbankcode != null">
+				AGENTBANKCODE = #{agentbankcode,jdbcType=VARCHAR},
+			</if>
+			<if test="bankagent != null">
+				BANKAGENT = #{bankagent,jdbcType=VARCHAR},
+			</if>
+			<if test="organcomcode != null">
+				ORGANCOMCODE = #{organcomcode,jdbcType=VARCHAR},
+			</if>
+			<if test="operator != null">
+				OPERATOR = #{operator,jdbcType=VARCHAR},
+			</if>
+			<if test="makedate != null">
+				MAKEDATE = #{makedate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="maketime != null">
+				MAKETIME = #{maketime,jdbcType=VARCHAR},
+			</if>
+			<if test="modifydate != null">
+				MODIFYDATE = #{modifydate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifytime != null">
+				MODIFYTIME = #{modifytime,jdbcType=VARCHAR},
+			</if>
+			<if test="agentname != null">
+				AGENTNAME = #{agentname,jdbcType=VARCHAR},
+			</if>
+			<if test="grpcontno != null">
+				GRPCONTNO = #{grpcontno,jdbcType=VARCHAR},
+			</if>
+			<if test="receivetime != null">
+				RECEIVETIME = #{receivetime,jdbcType=VARCHAR},
+			</if>
+			<if test="riskcode != null">
+				RISKCODE = #{riskcode,jdbcType=VARCHAR},
+			</if>
+			<if test="accountbalance != null">
+				ACCOUNTBALANCE = #{accountbalance,jdbcType=DECIMAL},
+			</if>
+			<if test="debitflag != null">
+				DEBITFLAG = #{debitflag,jdbcType=VARCHAR},
+			</if>
+			<if test="delayeddebit != null">
+				DELAYEDDEBIT = #{delayeddebit,jdbcType=TIMESTAMP},
+			</if>
+			<if test="hesitationflag != null">
+				HESITATIONFLAG = #{hesitationflag,jdbcType=VARCHAR},
+			</if>
+			<if test="InvestmentStartDate != null">
+				INVESTMENTSTARTDATE = #{InvestmentStartDate,jdbcType= TIMESTAMP},
+			</if>
+			<if test="acctUserName != null">
+				ACCTUSERNAME = #{acctUserName,jdbcType=VARCHAR},
+			</if>
+			<if test="acctType != null">
+				ACCTTYPE = #{acctType,jdbcType=VARCHAR},
+			</if>
+			<if test="depositBank != null">
+				DEPOSITBANK = #{depositBank,jdbcType=VARCHAR},
+			</if>
+			<if test="InvestmentStartDateFlag != null">
+				INVESTMENTSTARTDATEFLAG = #{InvestmentStartDateFlag,jdbcType= VARCHAR},
+			</if>
+			<if test="deductionstype != null">
+				DEDUCTIONSTYPE = #{deductionstype,jdbcType=VARCHAR},
+			</if>
+			<if test="premiumBudget != null">
+				PREMIUMBUDGET = #{premiumBudget,jdbcType=VARCHAR},
+			</if>
+			 <if test="chargecode != null" >
+	        CHARGECODE = #{chargecode,jdbcType=VARCHAR},
+	      </if>
+		</set>
+		where TRANSNO = #{transno,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateLCAppnt" parameterType="com.sinosoft.service.business.db.vo.LCAppntVo">
+		update LCAPPNT
+		<set>
+			<if test="prtno != null">
+				PRTNO = #{prtno,jdbcType=VARCHAR},
+			</if>
+			<if test="appntno != null">
+				APPNTNO = #{appntno,jdbcType=VARCHAR},
+			</if>
+			<if test="relationtolcinsured != null">
+				RELATIONTOLCINSURED = #{relationtolcinsured,jdbcType=VARCHAR},
+			</if>
+			<if test="appntstartdate != null">
+				APPNTSTARTDATE = #{appntstartdate,jdbcType=TIMESTAMP},
+			</if>
+
+
+			<if test="appntname != null">
+				APPNTNAME = #{appntname,jdbcType=VARCHAR},
+			</if>
+			<if test="grpcontno != null">
+				GRPCONTNO = #{grpcontno,jdbcType=VARCHAR},
+			</if>
+			<if test="appntsex != null">
+				APPNTSEX = #{appntsex,jdbcType=VARCHAR},
+			</if>
+			<if test="appntbirthday != null">
+				APPNTBIRTHDAY = #{appntbirthday,jdbcType=TIMESTAMP},
+			</if>
+			<if test="appntenddate != null">
+				APPNTENDDATE = #{appntenddate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="idtype != null">
+				IDTYPE = #{idtype,jdbcType=VARCHAR},
+			</if>
+			<if test="idno != null">
+				IDNO = #{idno,jdbcType=VARCHAR},
+			</if>
+			<if test="nativeplace != null">
+				NATIVEPLACE = #{nativeplace,jdbcType=VARCHAR},
+			</if>
+			<if test="idsubmit != null">
+				IDSUBMIT = #{idsubmit,jdbcType=VARCHAR},
+			</if>
+			<if test="rgtaddress != null">
+				RGTADDRESS = #{rgtaddress,jdbcType=VARCHAR},
+			</if>
+			<if test="health != null">
+				HEALTH = #{health,jdbcType=VARCHAR},
+			</if>
+			<if test="stature != null">
+				STATURE = #{stature,jdbcType=DECIMAL},
+			</if>
+			<if test="avoirdupois != null">
+				AVOIRDUPOIS = #{avoirdupois,jdbcType=DECIMAL},
+			</if>
+			<if test="creditgrade != null">
+				CREDITGRADE = #{creditgrade,jdbcType=VARCHAR},
+			</if>
+			<if test="bankcode != null">
+				BANKCODE = #{bankcode,jdbcType=VARCHAR},
+			</if>
+			<if test="bankaccno != null">
+				BANKACCNO = #{bankaccno,jdbcType=VARCHAR},
+			</if>
+			<if test="accname != null">
+				ACCNAME = #{accname,jdbcType=VARCHAR},
+			</if>
+			<if test="salary != null">
+				SALARY = #{salary,jdbcType=DECIMAL},
+			</if>
+			<if test="occupationcode != null">
+				OCCUPATIONCODE = #{occupationcode,jdbcType=VARCHAR},
+			</if>
+			<if test="company != null">
+				COMPANY = #{company,jdbcType=VARCHAR},
+			</if>
+			<if test="responsibility != null">
+				RESPONSIBILITY = #{responsibility,jdbcType=VARCHAR},
+			</if>
+			<if test="managecom != null">
+				MANAGECOM = #{managecom,jdbcType=VARCHAR},
+			</if>
+			<if test="operator != null">
+				OPERATOR = #{operator,jdbcType=VARCHAR},
+			</if>
+			<if test="makedate != null">
+				MAKEDATE = #{makedate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="maketime != null">
+				MAKETIME = #{maketime,jdbcType=VARCHAR},
+			</if>
+			<if test="modifydate != null">
+				MODIFYDATE = #{modifydate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifytime != null">
+				MODIFYTIME = #{modifytime,jdbcType=VARCHAR},
+			</if>
+			<if test="otherresponsibility != null">
+				OTHERRESPONSIBILITY = #{otherresponsibility,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where TRANSNO = #{transno,jdbcType=VARCHAR}
+		and CONTNO = #{contno,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateByPrimaryKey" parameterType="com.sinosoft.service.business.db.vo.LCAppntVo">
+		update LCAPPNT
+		set PRTNO = #{prtno,jdbcType=VARCHAR},
+		APPNTNO = #{appntno,jdbcType=VARCHAR},
+		RELATIONTOLCINSURED = #{relationtolcinsured,jdbcType=VARCHAR},
+		GRPCONTNO= #{grpcontno,jdbcType=VARCHAR},
+		APPNTSTARTDATE = #{appntstartdate,jdbcType=TIMESTAMP},
+		APPNTNAME = #{appntname,jdbcType=VARCHAR},
+		APPNTSEX = #{appntsex,jdbcType=VARCHAR},
+		APPNTBIRTHDAY = #{appntbirthday,jdbcType=TIMESTAMP},
+		APPNTENDDATE = #{appntenddate,jdbcType=TIMESTAMP},
+		IDTYPE = #{idtype,jdbcType=VARCHAR},
+		IDNO = #{idno,jdbcType=VARCHAR},
+		NATIVEPLACE = #{nativeplace,jdbcType=VARCHAR},
+		IDSUBMIT = #{idsubmit,jdbcType=VARCHAR},
+		RGTADDRESS = #{rgtaddress,jdbcType=VARCHAR},
+		HEALTH = #{health,jdbcType=VARCHAR},
+		STATURE = #{stature,jdbcType=DECIMAL},
+		AVOIRDUPOIS = #{avoirdupois,jdbcType=DECIMAL},
+		CREDITGRADE = #{creditgrade,jdbcType=VARCHAR},
+		BANKCODE = #{bankcode,jdbcType=VARCHAR},
+		BANKACCNO = #{bankaccno,jdbcType=VARCHAR},
+		ACCNAME = #{accname,jdbcType=VARCHAR},
+		SALARY = #{salary,jdbcType=DECIMAL},
+		OCCUPATIONCODE = #{occupationcode,jdbcType=VARCHAR},
+		COMPANY = #{company,jdbcType=VARCHAR},
+		RESPONSIBILITY = #{responsibility,jdbcType=VARCHAR},
+		MANAGECOM = #{managecom,jdbcType=VARCHAR},
+		OPERATOR = #{operator,jdbcType=VARCHAR},
+		MAKEDATE = #{makedate,jdbcType=TIMESTAMP},
+		MAKETIME = #{maketime,jdbcType=VARCHAR},
+		MODIFYDATE = #{modifydate,jdbcType=TIMESTAMP},
+		MODIFYTIME = #{modifytime,jdbcType=VARCHAR},
+		OTHERRESPONSIBILITY = #{otherresponsibility,jdbcType=VARCHAR}
+		where TRANSNO = #{transno,jdbcType=VARCHAR}
+		and CONTNO = #{contno,jdbcType=VARCHAR}
+	</update>
+
+	<delete id="deleteByLccont" parameterType="String">
+		delete from lccont
+		where TRANSNO = #{transno,jdbcType=VARCHAR}
+	</delete>
+
+	<delete id="deleteByLcappnt" parameterType="String">
+		delete from Lcappnt
+		where TRANSNO = #{transno,jdbcType=VARCHAR}
+	</delete>
+
+	<select id="selectBylccont" resultType="com.sinosoft.service.business.db.vo.LCContVo"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from lccont where transno=#{transno,jdbcType=VARCHAR}
+	</select>
+
+
+	<select id="selectBylcAppnt" resultType="com.sinosoft.service.business.db.vo.LCAppntVo"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List1" />
+		from lcappnt where transno=#{transno,jdbcType=VARCHAR}
+	</select>
+
+
+	<select id="selectAllNotDebit" resultType="com.sinosoft.service.business.db.vo.LCContVo">
+		select
+		<include refid="Base_Column_List" />
+		from lccont
+		where #{date} &lt;= modifydate
+		and Appflag = '02'
+	</select>
+
+
+	<select id="selectAllCancelContNo" resultType="com.sinosoft.service.business.db.vo.LCContVo">
+		select
+		<include refid="Base_Column_List" />
+		from lccont
+		where Appflag = '09'
+		<if test="time != null">
+		 and PolApplyDate = #{time,jdbcType=DATE}
+		</if>
+	
+	</select>
+
+	<select id="selectRouterByDate" resultType="com.sinosoft.service.business.db.vo.LCContVo" parameterType="Date">
+	select
+    <include refid="Base_Column_List4" />
+    from lccont 
+    where polapplydate &gt;= #{startDate} and polapplydate &lt;= #{endDate} and appflag in ('05','06','07','09')
+    union all
+    select
+    <include refid="Base_Column_List4" />
+    from lccont l
+    where l.polapplydate &gt;= #{startDate} and l.polapplydate &lt;= #{endDate} and l.appflag in ('02','12','14') and l.chargecode = 'S'
+    union all
+    select
+    <include refid="Base_Column_List4" />
+    from lccont l
+    where l.polapplydate &gt;= #{startDate} and l.polapplydate &lt;= #{endDate} and l.appflag in ('02','14') and l.chargecode in ('W','F')
+	</select>
+	
+	<select id="selectBigAllByDate" resultType="com.sinosoft.service.business.ui.excelreport.been.LccontExcel"  parameterType="Date">
+	  select
+      lc.transno       ,
+      lc.grpcontno     ,     
+      lc.managecom     ,     
+      lc.insurancecom  ,   
+      lc.bankaccno,  
+      lc.proposalcontno,
+      lc.contno      ,   
+      lc.agentcode     ,    
+      lc.polapplydate  ,  
+      lc.appntname     ,  
+      ld.codename,
+      lc.appntidno     ,  
+      lc.insuredname   , 
+      ld1.codename,
+      lc.insuredidno ,
+      lc.getpolmode ,
+      lc.appflag,
+      lc.riskcode,
+      lp.health  as appInfromFlag,
+      ls.health as insureInfromFlag,
+      lc.chargecode,
+      lc.firsttrialtime
+      from lccont lc 
+      left join lcappnt lp on lc.transno = lp.transno
+      left join lcinsured ls on lc.transno = ls.transno
+      left join ldcode ld on ld.code=lc.appntidtype and ld.codetype ='idtype'
+      left join ldcode ld1 on ld1.code=lc.insuredidtype and ld.codetype ='idtype'
+      where lc.appflag in ('04','05','06','07') and to_char (lc.polapplydate, 'yyyymmdd') 
+      = to_char(#{startDate}-1, 'yyyymmdd' )  
+      union all
+      select
+      lc.transno       ,
+      lc.grpcontno     ,     
+      lc.managecom     ,     
+      lc.insurancecom  ,   
+      lc.bankaccno,  
+      lc.proposalcontno,
+      lc.contno      ,   
+      lc.agentcode     ,    
+      lc.polapplydate  ,  
+      lc.appntname     ,  
+      ld.codename,
+      lc.appntidno     ,  
+      lc.insuredname   , 
+      ld1.codename,
+      lc.insuredidno ,
+      lc.getpolmode ,
+      lc.appflag,
+      lc.riskcode,
+      lp.health  as appInfromFlag,
+      ls.health as insureInfromFlag,
+      lc.chargecode,
+      lc.firsttrialtime
+      from lccont lc 
+      left join lcappnt lp on lc.transno = lp.transno
+      left join lcinsured ls on lc.transno = ls.transno
+      left join ldcode ld on ld.code=lc.appntidtype and ld.codetype ='idtype'
+      left join ldcode ld1 on ld1.code=lc.insuredidtype and ld.codetype ='idtype'
+      where lc.appflag in ('02','12','14')and lc.chargecode ='S' and to_char (lc.polapplydate, 'yyyymmdd') 
+      = to_char(#{startDate}-1, 'yyyymmdd' )
+       		
+	</select>
+	
+	<select id="selectBigAllDate" resultType="com.sinosoft.service.business.ui.excelreport.been.LccontExcel">
+	  select
+      lc.transno       ,
+      lc.grpcontno     ,     
+      lc.managecom     ,     
+      lc.insurancecom  ,   
+      lc.bankaccno,  
+      lc.proposalcontno,
+      lc.contno      ,   
+      lc.agentcode     ,    
+      lc.polapplydate  ,  
+      lc.appntname     ,  
+      ld.codename,
+      lc.appntidno     ,  
+      lc.insuredname   , 
+      ld1.codename,
+      lc.insuredidno ,
+      lc.getpolmode ,
+      lc.appflag,
+      lc.riskcode,
+      lp.health  as appInfromFlag,
+      ls.health as insureInfromFlag,
+      lc.chargecode,
+      lc.firsttrialtime
+      from lccont lc 
+      left join lcappnt lp on lc.transno = lp.transno
+      left join lcinsured ls on lc.transno = ls.transno
+      left join ldcode ld on ld.code=lc.appntidtype and ld.codetype ='idtype'
+      left join ldcode ld1 on ld1.code=lc.insuredidtype and ld.codetype ='idtype'
+      where lc.appflag in ('04','05','06','07') and to_char (lc.polapplydate, 'yyyymmdd') 
+      = to_char(sysdate-1, 'yyyymmdd' )  
+      union all
+      select
+      lc.transno       ,
+      lc.grpcontno     ,     
+      lc.managecom     ,     
+      lc.insurancecom  ,   
+      lc.bankaccno,  
+      lc.proposalcontno,
+      lc.contno      ,   
+      lc.agentcode     ,    
+      lc.polapplydate  ,  
+      lc.appntname     ,  
+      ld.codename,
+      lc.appntidno     ,  
+      lc.insuredname   , 
+      ld1.codename,
+      lc.insuredidno ,
+      lc.getpolmode ,
+      lc.appflag,
+      lc.riskcode,
+      lp.health  as appInfromFlag,
+      ls.health as insureInfromFlag,
+      lc.chargecode,
+      lc.firsttrialtime
+      from lccont lc 
+      left join lcappnt lp on lc.transno = lp.transno
+      left join lcinsured ls on lc.transno = ls.transno
+      left join ldcode ld on ld.code=lc.appntidtype and ld.codetype ='idtype'
+      left join ldcode ld1 on ld1.code=lc.insuredidtype and ld.codetype ='idtype'
+      where lc.appflag in ('02','12','14')and lc.chargecode ='S' and to_char (lc.polapplydate, 'yyyymmdd') 
+      = to_char(sysdate-1, 'yyyymmdd' )	 		
+	</select>
+
+	<select id="selectRiskInfo" resultType="com.sinosoft.service.business.ui.excelreport.been.RiskInfo" parameterType="String">
+	select 
+    ld.codename  as payType,
+    l.APLOption as overPayChoice,
+    l.bonusgetmode  as paymentType,
+    l.PDFOPTION  as overFlag,
+    l.riskcode  as riskcode,
+    k.riskname as riskname,
+    l.prem    as  riskFirstPay,
+    l.amnt   as   riskAlipay,
+    ld1.codename  as  riskDeadlinetype,
+    l.insuyear     as    riskDuration,
+    ld2.codename    as     riskPaymentType,
+    l.payendyear     as     riskPaymentYear,
+    ld3.codename   as riskGetType,
+    l.getyear   as riskGetAge,
+    k.subriskflag  as  riskFlag from  lcpol  l 
+    left join lmrisk k on l.riskcode = k.riskcode 
+    left join ldcode ld on ld.code = l.payintv and ld.codetype='riskinputtypep00'
+    left join ldcode ld1 on ld1.code = l.insuyearflag and ld1.codetype='riskinputtypep01'
+    left join ldcode ld2 on ld2.code = l.payendyearflag and ld2.codetype='riskinputtypep02'
+    left join ldcode ld3 on ld3.code = l.getform and ld3.codetype='getform' 
+	where l.transno =#{transno}			
+	</select>
+
+	<select id="selectAccontInfo" resultType="com.sinosoft.service.business.ui.excelreport.been.AccontInfo" parameterType="String">
+	select 
+	accNO,
+	accRate 
+	from LCAccountInfo l
+	where l.transno = #{transno}
+	and l.Proposalcontno = #{proposalcontno} 
+	and l.Riskcode =#{riskcode}		
+	</select>
+
+	<select id="selectshisuan" resultType="String">
+	 select shisuan.nextval from dual	
+	</select>
+	
+	<select id="selectcomcode" resultType="String" parameterType="String">
+	 select companycode from lduser where emplid=#{operator}	
+	</select>
+	
+	<select id="selectAutoAgent" resultType="com.sinosoft.service.business.db.vo.LCContVo" >
+	 select 
+	 <include refid="Base_Column_List5" />
+	 from lccont
+	 where debitflag = '1'
+	 and appflag = '12'
+	 and to_char(delayeddebit, 'yyyymmdd') &lt;= to_char(sysdate, 'yyyymmdd' )
+	 and to_char(polapplydate, 'yyyymmdd') &gt;= to_char(sysdate-20, 'yyyymmdd' ) 
+	</select>
+	
+	<select id="selectAgentcom" resultType="String" >
+	 select agentcom from lacom
+	</select>
+	
+	<select id="selectByinsurancecom" resultMap="BaseResultMap" parameterType="String">
+	 select 
+	 INSURANCECOM,
+	 proposalcontno,
+	 APPNTNAME,
+	 delayeddebit,
+	 prem 
+	 from lccont where debitflag='1' 
+	 and appflag='12' and INSURANCECOM =#{agentcom}
+	</select>
+	
+	<select id="selectByinsurandtime" resultType="com.sinosoft.service.business.db.vo.LCContVo" parameterType="String">
+	select 
+	INSURANCECOM,
+	contno,
+	prtno,
+	prem,
+	poltype 
+	from lccont where appflag='04'  and 
+	to_char(polapplydate,'yyyymmdd')=
+    to_char(sysdate-1, 'yyyymmdd') 
+    and 
+    INSURANCECOM = #{agentcom}
+	</select>
+	<select id ="selectByCurrDate" resultType ="com.sinosoft.service.business.db.vo.LCContVo" parameterType ="String">
+	select * from lccont l where l.firsttrialtime =#{firsttrialtime} 
+	</select>
+	
+	<select id ="selectByDateAndFlag" resultType ="com.sinosoft.service.business.db.vo.LCContVo" parameterType ="Date">
+	select * from lccont l where l.polapplydate = #{polapplyDate} and l.appflag = '10'
+	union all
+	select * from lccont l where l.polapplydate =  #{polapplyDate} and l.appflag='02' and l.CHARGECODE in('W','F')
+	</select>
+	
+</mapper>
