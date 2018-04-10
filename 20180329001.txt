@@ -1,6 +1,0 @@
-update menu m set m.meddle_menu_name ='报表查询' where m.menu_name='交易报表';
-update menu m set m.meddle_menu_name ='报表查询' where m.menu_name='MI报表';
-update menu m set m.meddle_menu_name ='报表查询' where m.menu_name='对账差异清单';
-update menu m set m.meddle_menu='8' where m.menu_name='手动跑批'；
-update menu m set m.meddle_menu='7'，m.menu_desc ='1' , m.meddle_menu_name ='报表授权'  where m.menu_name='交易报表授权' ；
-commit;
