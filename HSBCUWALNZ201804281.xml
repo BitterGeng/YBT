@@ -1,0 +1,76 @@
+<Req>
+   <InsuDate>20180503</InsuDate>
+   <InsuTime>11:00:41</InsuTime>
+   <FileNo>01</FileNo>  
+   <InsuID>ANZL</InsuID>
+   <ResultDetail>
+      <ProposalContNo>SH8000002820</ProposalContNo>
+      <FinalProposalContNo >SH8000002820</FinalProposalContNo >
+      <UWResult>01</UWResult>
+      <DebitDate>20180503</DebitDate>
+      <ContNo>SH8000002820</ContNo>
+      <Prem>5000</Prem>
+      <StandPrem>4852545</StandPrem>
+   <Policy>
+      <MainRiskCode>@JD</MainRiskCode>
+      <PayIntv>Y</PayIntv>
+   </Policy>
+   <Risks>
+      <Count>1</Count>
+      <Risk>
+         <Name>都汇金生（财富增长）</Name>
+         <Code>@JD</Code>
+         <Mult >1</Mult>
+         <StandPrem>0</StandPrem>
+         <Prem>300</Prem>
+         <Amnt>40000</Amnt>
+         <InsuYearFlag>1</InsuYearFlag>
+         <InsuYear>20Y</InsuYear>
+         <PayEndYearFlag>N</PayEndYearFlag>
+         <PayEndYear>0Y</PayEndYear>
+      </Risk>
+   </Risks>
+  </ResultDetail>
+
+   <ResultDetail>
+      <ProposalContNo>SH8000002819</ProposalContNo>
+      <FinalProposalContNo >SH8000002819</FinalProposalContNo >
+      <UWResult>01</UWResult>
+      <DebitDate>20180503</DebitDate>
+      <ContNo>SH8000002819</ContNo>
+      <Prem>5000</Prem>
+      <StandPrem>50000</StandPrem>
+   <Policy>
+      <MainRiskCode>@JD</MainRiskCode>
+      <PayIntv>Y</PayIntv>
+   </Policy>
+   <Risks>
+      <Count>2</Count>
+      <Risk>
+         <Name>都汇金生（财富增长）</Name>
+         <Code>@JD</Code>
+         <Mult >1</Mult>
+         <StandPrem>110</StandPrem>
+         <Prem>300</Prem>
+         <Amnt>40000</Amnt>
+         <InsuYearFlag>1</InsuYearFlag>
+         <InsuYear>20Y</InsuYear>
+         <PayEndYearFlag>N</PayEndYearFlag>
+         <PayEndYear>0Y</PayEndYear>
+      </Risk>
+	     <Risk>
+         <Name>都汇金生（财富增长）</Name>
+         <Code>@JD</Code>
+         <Mult >1</Mult>
+         <StandPrem>1100</StandPrem>
+         <Prem>3000</Prem>
+         <Amnt>400000</Amnt>
+         <InsuYearFlag>1</InsuYearFlag>
+         <InsuYear>20Y</InsuYear>
+         <PayEndYearFlag>N</PayEndYearFlag>
+         <PayEndYear>0Y</PayEndYear>
+      </Risk>
+   </Risks>
+  </ResultDetail>
+
+</Req>
